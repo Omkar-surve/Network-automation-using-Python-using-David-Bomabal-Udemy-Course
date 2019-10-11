@@ -1,0 +1,18 @@
+Important IMPORTS done so far:
+======================================
+import math                                                   ==> used to perform math operations
+import random                                                 ==> used to randomly draw terms from list or range.
+import json                                                   ==> used to parse json in Python
+import os                                                     ==> used to import/open/modify/read file in remote location.
+from pprint import pprint                                     ==> prints content in proper stuctured format. Easily understandable.
+from urllib.request import Request, urlopen                   ==> send and receives responses from api/url.
+
+
+
+Files:
+======================================
+my_attempt_to answers   ==> shows how to define functions, using loops,and imported modules.
+fortune_cookie          ==> shows use of """ to add definition to function. use of shebang to point to environment to use to execute the script.
+                            pointing to specific defined function.
+nested_data             ==> shows data conversion to and from json and python. importing remote file. use of pprint module.
+get-ap-json             ==> shows use of urllib. Request and receive response from url/api in json.
