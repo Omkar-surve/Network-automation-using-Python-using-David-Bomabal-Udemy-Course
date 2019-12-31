@@ -1,0 +1,6 @@
+cisco_ios,10.10.2.1,R1
+cisco_ios,10.10.2.2,R2
+cisco_ios,10.10.2.3,R3
+cisco_ios,10.10.2.4,R4
+cisco_xr,10.10.2.5,R5
+cisco_xr,10.10.2.6,R6

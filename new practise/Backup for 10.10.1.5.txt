@@ -1,0 +1,153 @@
+
+**************************************************************************
+* IOSv is strictly limited to use for evaluation, demonstration and IOS  *
+* education. IOSv is provided as-is and is not supported by Cisco's      *
+* Technical Advisory Center. Any use or disclosure, in whole or in part, *
+* of the IOSv Software or Documentation to any third party for any       *
+* purposes is expressly prohibited except as otherwise authorized by     *
+* Cisco in writing.                                                      *
+**************************************************************************
+SW5#terminal length 0
+SW5#sh running-config
+Building configuration...
+
+Current configuration : 3450 bytes
+!
+! Last configuration change at 23:15:36 UTC Thu Nov 21 2019
+!
+version 15.2
+service timestamps debug datetime msec
+service timestamps log datetime msec
+service password-encryption
+service compress-config
+!
+hostname SW5
+!
+boot-start-marker
+boot-end-marker
+!
+!
+enable password 7 13061E010803
+!
+username admin privilege 15 password 7 01100F175804
+username omkar privilege 10 password 7 13061E010803
+username L1 privilege 15 password 7 05080F1C2243
+no aaa new-model
+!
+!
+!
+!
+!
+!
+!
+!
+ip domain-name TEST.COM
+ip cef
+no ipv6 cef
+!
+!
+!
+spanning-tree mode pvst
+spanning-tree extend system-id
+!
+vlan internal allocation policy ascending
+!
+! 
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+interface GigabitEthernet0/0
+ no switchport
+ ip address 10.10.1.5 255.255.0.0
+ negotiation auto
+ ntp broadcast client
+!
+interface GigabitEthernet0/1
+ shutdown
+ media-type rj45
+ negotiation auto
+!
+interface GigabitEthernet0/2
+ shutdown
+ media-type rj45
+ negotiation auto
+!
+interface GigabitEthernet0/3
+ shutdown
+ media-type rj45
+ negotiation auto
+!
+ip default-gateway 10.10.0.3
+ip forward-protocol nd
+!
+no ip http server
+no ip http secure-server
+!
+!
+!
+!
+!
+!
+control-plane
+!
+privilege exec level 5 enable
+privilege exec level 10 configure terminal
+privilege exec level 10 configure
+privilege exec level 5 show running-config all
+privilege exec level 5 show running-config
+privilege exec level 5 show
+banner exec ^C
+**************************************************************************
+* IOSv is strictly limited to use for evaluation, demonstration and IOS  *
+* education. IOSv is provided as-is and is not supported by Cisco's      *
+* Technical Advisory Center. Any use or disclosure, in whole or in part, *
+* of the IOSv Software or Documentation to any third party for any       *
+* purposes is expressly prohibited except as otherwise authorized by     *
+* Cisco in writing.                                                      *
+**************************************************************************^C
+banner incoming ^C
+**************************************************************************
+* IOSv is strictly limited to use for evaluation, demonstration and IOS  *
+* education. IOSv is provided as-is and is not supported by Cisco's      *
+* Technical Advisory Center. Any use or disclosure, in whole or in part, *
+* of the IOSv Software or Documentation to any third party for any       *
+* purposes is expressly prohibited except as otherwise authorized by     *
+* Cisco in writing.                                                      *
+**************************************************************************^C
+banner login ^C
+**************************************************************************
+* IOSv is strictly limited to use for evaluation, demonstration and IOS  *
+* education. IOSv is provided as-is and is not supported by Cisco's      *
+* Technical Advisory Center. Any use or disclosure, in whole or in part, *
+* of the IOSv Software or Documentation to any third party for any       *
+* purposes is expressly prohibited except as otherwise authorized by     *
+* Cisco in writing.                                                      *
+**************************************************************************^C
+!
+line con 0
+ logging synchronous
+ login local
+ transport output telnet ssh
+line aux 0
+line vty 0 4
+ logging synchronous
+ login local
+ transport input telnet ssh
+ transport output telnet ssh
+!
+ntp broadcastdelay 5
+ntp server 10.10.255.254
+!
+end
+
+SW5#exit
+

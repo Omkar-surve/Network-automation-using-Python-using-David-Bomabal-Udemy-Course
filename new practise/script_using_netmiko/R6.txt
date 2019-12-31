@@ -1,0 +1,21 @@
+route-policy pass
+  pass
+end-policy
+!
+router bgp 500
+ bgp router-id 6.6.6.6
+ address-family ipv4 unicast
+  network 6.6.6.6/32
+ !
+ neighbor 46.4.6.4
+  remote-as 400
+  address-family ipv4 unicast
+   send-community-ebgp
+   route-policy pass in
+   route-policy pass out
+   send-extended-community-ebgp
+   next-hop-self
+  !
+ !
+!
+commit

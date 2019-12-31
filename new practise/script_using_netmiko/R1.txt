@@ -1,0 +1,14 @@
+router bgp 100
+bgp router-id 1.1.1.1
+network 1.1.1.1 mask 255.255.255.255
+neighbor 12.1.2.2 remote-as 300
+neighbor 15.1.5.5 remote-as 200
+address-family ipv4 unicast
+neighbor 12.1.2.2 activate
+neighbor 12.1.2.2 next-hop-self
+neighbor 12.1.2.2 send-community both
+neighbor 15.1.5.5 activate
+neighbor 15.1.5.5 next-hop-self
+neighbor 15.1.5.5 send-community both
+!
+do wr me
