@@ -1,0 +1,5 @@
+sh ip int br
+sh ntp status
+sh clock
+sh ip route
+sh bgp ipv4 unicast summary

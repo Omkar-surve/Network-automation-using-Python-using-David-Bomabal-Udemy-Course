@@ -1,0 +1,57 @@
+
+Wed Jan  1 01:22:27.858 UTC
+Building configuration...
+!! IOS XR Configuration 6.0.0
+!! Last configuration change at Sun Dec  1 18:19:34 2019 by omkar
+!
+hostname R6
+domain name DN.com
+ntp
+ interface MgmtEth0/0/CPU0/0
+  broadcast client
+ !
+ server 10.10.0.4 prefer
+ broadcastdelay 5
+!
+ipv4 access-list SSH_ALLOWED
+ 10 permit ipv4 10.10.0.0/16 any
+!
+interface Loopback0
+ ipv4 address 6.6.6.6 255.255.255.255
+!
+interface MgmtEth0/0/CPU0/0
+ ipv4 address 10.10.2.6 255.255.0.0
+!
+interface GigabitEthernet0/0/0/0
+ ipv4 address 46.4.6.6 255.255.0.0
+!
+interface GigabitEthernet0/0/0/1
+ shutdown
+!
+interface GigabitEthernet0/0/0/2
+ shutdown
+!
+route-policy pass
+  pass
+end-policy
+!
+router bgp 500
+ bgp router-id 6.6.6.6
+ address-family ipv4 unicast
+  network 6.6.6.6/32
+ !
+ neighbor 46.4.6.4
+  remote-as 400
+  address-family ipv4 unicast
+   send-community-ebgp
+   route-policy pass in
+   route-policy pass out
+   send-extended-community-ebgp
+   next-hop-self
+  !
+ !
+!
+ssh server v2
+ssh server vrf default ipv4 access-list SSH_ALLOWED
+ssh timeout 120
+end

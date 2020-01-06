@@ -1,0 +1,95 @@
+Parsing JSON:
+============================================
+Objectives:
+
+1)    The need for structured data formats.
+2)    How to read-from and write-to files using Python.
+3)   JSON’s lightweight syntax.
+4)    How to use Python’s JSON module to “load” and “dump” data.
+5)    How to access data elements within nested data.
+
+Structured Data Formats are-
+	1) human readable
+	2) machine parsable
+	3) easily transportable
+
+Examples:
+
+    JSON (JavaScript Object Notation)
+    XML (eXtensible Markup Language)
+    YAML (YAML Ain't Markup Language)
+
+========================================================================
+Open and Close function:
+new_file = open("<file path>", mode="<r/w>")	===> opens the specified file, with read or write mode of operation
+new_file_read = new_file.read()		===> reads the file
+new_file_write = new_file.write()		===> used to write contains to the opened file
+print(new_file_read)			===> print the fie contains
+new_file.close()				===> close the file
+
+=========================================================================
+Key Points in difference between JSON and Python:
+
+	1)    The use of single vs. double quotes: Python doesn't care, but JSON does. JSON strings must be delineated using double quotes " ".
+	2)    The capitalization of the boolean value true: Python uses True with a capital T and False with a capital F, while JSON uses an all-lowercase convention of true and false.
+	3)   Trailing commas: This is another difference where Python doesn't care (and will ignore any trailing commas), but JSON does care and will complain if you accidentally leave some trailing commas in your JSON data.
+	4)    The outermost element of a JSON data structure must be an "object" (which is the JSON name for a name-value pair data structure, like Python's dictionary).
+	5)    Python can use any immutable and hash-able data type as a name in a dictionary. JSON names must be strings.
+
+=========================================================================
+Parsing Json dataformat script to from Python:
+
+1) Import the modules necessary and required in script:
+
+ import json
+ import os
+ from pprint import pprint
+
+2) Locate the remote file:
+
+here = os.path.abspath(os.path.dirname(__file__))
+	note: os.path.dirname(__file__) is actually the file path. 'here' variable stores the directory path of the file.
+
+3) Open the remote file:
+
+ with open(os.path.join(here, "interface-config.json")) as file:		==> opens the file name with 'interface-config.json' in location 'here'
+     json_text = file.read()					==> reads and stores contains in json_text object
+
+4) Display and print the contains of the object json_text:
+
+ print("json_text is a", type(json_text))
+ print(json_text)
+
+5) Parsing the text into native Python data.
+
+json_data = json.loads(json_text)
+
+6) Pretty-print the type and contents of the json_data variable
+
+ print("json_data is a", type(json_data))
+ pprint(json_data)
+ 
+============================================================================
+Working with nested data
+
+What is nested data? Imagine that you have:
+
+    A string which is the value of a dictionary name-value pair.
+    That dictionary is one element of a list.
+    That list is the value of a dictionary name-value pair.
+    That dictionary is the value of dictionary name-value pair.
+    That dictionary is the value of dictionary name-value pair.
+    That dictionary is the value of dictionary name-value pair.
+
+============================================================================
+
+Python 		JSON Equivalent
+dict 		object
+list, tuple 		array
+str 		string
+int, float, int	number
+True 		true
+False 		false
+None 		null
+
+============================================================================

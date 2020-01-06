@@ -1,0 +1,15 @@
+router bgp 400
+bgp router-id 3.3.3.3
+network 3.3.3.3 mask 255.255.255.255
+neighbor 35.3.5.5 remote-as 200
+neighbor 4.4.4.4 remote-as 400
+neighbor 4.4.4.4 update-source loopback 0
+address-family ipv4 unicast
+neighbor 35.3.5.5 activate
+neighbor 35.3.5.5 next-hop-self
+neighbor 35.3.5.5 send-community both
+neighbor 4.4.4.4 activate
+neighbor 4.4.4.4 next-hop-self
+neighbor 4.4.4.4 send-community both
+!
+do wr me

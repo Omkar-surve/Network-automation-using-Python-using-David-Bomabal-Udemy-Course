@@ -1,0 +1,4 @@
+int loopback 100
+  ip address 10.10.1.100 255.255.255.255
+  no shutdown
+  description configured using NAPALM
