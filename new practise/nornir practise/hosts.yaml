@@ -1,0 +1,30 @@
+---
+R1:
+  groups:
+    - AS100
+  hostname: 10.10.2.1
+
+R2:
+  groups:
+    - AS300
+  hostname: 10.10.2.2
+
+R3:
+  groups:
+    - AS400
+  hostname: 10.10.2.3
+
+R4:
+  groups:
+    - AS400
+  hostname: 10.10.2.4
+
+R5:
+  groups:
+    - AS200
+  hostname: 10.10.2.5
+
+R6:
+  groups:
+    - AS500
+  hostname: 10.10.2.6

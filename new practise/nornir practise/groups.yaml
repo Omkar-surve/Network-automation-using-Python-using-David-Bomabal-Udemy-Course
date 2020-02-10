@@ -1,0 +1,44 @@
+---
+customers:
+  data:
+    contact: noc@abc.com
+
+AS100:
+  groups:
+    - customers
+  data:
+    site: AS100
+    asn: '100'
+    contact: as100@abc.com
+
+AS200:
+  groups:
+    - customers
+  data:
+    site: AS200
+    asn: '200'
+    contact: as200@abc.com
+
+AS300:
+  groups:
+    - customers
+  data:
+    site: AS300
+    asn: '300'
+    contact: as300@abc.com
+
+AS400:
+  groups:
+    - customers
+  data:
+    site: AS400
+    asn: '400'
+    contact: as400@abc.com
+
+AS500:
+  groups:
+    - customers
+  data:
+    site: AS500
+    asn: '500'
+    contact: as500@abc.com

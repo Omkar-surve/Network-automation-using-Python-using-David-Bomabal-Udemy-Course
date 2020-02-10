@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-"""Importing libraries and its functions"""
+"""Encrypting and Decrypting contents of the file using JSON"""
 from netmiko import ConnectHandler
 from simplecrypt import encrypt, decrypt
 import json
@@ -8,7 +8,8 @@ from getpass import getpass
 from pprint import pprint
 from time import time
 import threading
-
+from multiprocessing import Pool
+import re
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 # Functions
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -26,30 +27,32 @@ def devices_detail(devices_info, creds_list):
 
 """Backup config of devices"""
 
-def write_config(device_type,device_ip,router_ssh):
+def print_config(device_type,device_ip,router_ssh):
     print(">>>>>>>>>>Copying config of router "+device_ip)
+    show_commands_ios = ['show bgp ipv4 unicast summary | b Neighbor']
+    show_commands_iosxr = ['show bgp ipv4 unicast summary | b Neighbor']
     if device_type == 'cisco_ios':
-        with open('Cisco_IOS_config_backup_for_'+device_ip,'w') as f:
-            output = router_ssh.send_command('show run')
+        with open('BGP_neighor_details_for_'+device_ip,'w') as f:
+            output = router_ssh.send_command(show_commands_ios[0])
             f.write(output)
     if device_type == 'cisco_xr':
-        with open('Cisco_XR_config_backup_for_'+device_ip,'w') as f:
-            output = router_ssh.send_command('show run')
+        with open('BGP_neighor_details_for_'+device_ip,'w') as f:
+            output = router_ssh.send_command(show_commands_iosxr[0])
             f.write(output)
     return
 
 """SSH and configure devices"""
 
-def configuring_device(dev_type, ipaddr, user, passwd):
-    device = {'device_type':dev_type,'ip':ipaddr,'username':user,'password':passwd}
+def configuring_device(dev_list):
+    dev = tuple(dev_list)
+    device = {'device_type':dev[0],'ip':dev[1],'username':dev[2],'password':dev[3]}
     router_ssh = ConnectHandler(**device)
     if device['device_type'] == 'cisco_ios':
         print('SSH to cisco ios device '+device['ip'])
-        write_config(device['device_type'],device['ip'],router_ssh)
-
+        print_config(device['device_type'],device['ip'],router_ssh)
     if device['device_type'] ==  'cisco_xr':
         print('SSH to cisco XR device '+device['ip'])
-        write_config(device['device_type'],device['ip'],router_ssh)
+        print_config(device['device_type'],device['ip'],router_ssh)
     return
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -59,6 +62,8 @@ def configuring_device(dev_type, ipaddr, user, passwd):
 creds_data = input("Enter name of encrypted credentials file (default: encrypted_cred):") or "encrypted_cred"
 devices_data = input("Enter name of the devices info file (default: devices_info.csv):") or "devices_info.csv"
 password = getpass()
+no_of_threads = Pool(int(input("Enter no. of threads(default 3):") or "3"))
+
 start_time = time()
 #below json.loads() command converts encrypted_cred_read.read() bytes data to list which is then decrypted using password as salt
 devices_raw_data = csv.reader(open(devices_data,'r'))
@@ -67,16 +72,14 @@ pprint(devices_list)
 #below json.loads() command converts encrypted_cred_read.read() bytes data to list which is then decrypted using password as salt
 creds_list = json.loads(decrypt(password,open(creds_data,'rb').read()))
 
-thread_list = []
+new_device_list = []
 devices_info = devices_detail(devices_list,creds_list)
 for [k,v] in devices_info.items():
-    new_device = v
-    thread_list.append(threading.Thread(target = configuring_device, args = (v['device_type'],v['ip'],v['username'],v['password'])))
+    new_device_list.append((v['device_type'],v['ip'],v['username'],v['password']))
+no_of_threads.map(configuring_device,new_device_list)
+#no_of_threads.close()
+#no_of_threads.join()
 
-for each_thread in thread_list:
-    each_thread.start()
-
-for each_thread in thread_list:
-    each_thread.join()
+#no_of_threads.map(configuring_device, args = (v['device_type'],v['ip'],v['username'],v['password']))
 
 print('Elapsed time:'+str(time()-start_time)+'sec')

@@ -1,0 +1,4 @@
+int loopback 100
+  ipv4 address 100.1.1.1 255.255.255.255
+  no shutdown
+  description configured using NAPALM
