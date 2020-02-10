@@ -1,5 +1,6 @@
 from napalm import get_network_driver
 from pprint import pprint
+<<<<<<< HEAD
 from netmiko import ConnectHandler
 from simplecrypt import encrypt, decrypt
 import json
@@ -88,3 +89,14 @@ for [k,v] in devices_info.items():
 no_of_threads.map(configuring_device,new_device_list)
 print('Elapsed time:'+str(time()-start_time)+'sec')
 #####################################################################################################################3
+=======
+
+driver =get_network_driver('ios')
+ios = driver('10.10.2.3','omkar','cisco')
+
+ios.open()
+
+ios.load_merge_candidate('IOS_config_using_napalm.txt')
+diff = ios.compare_config()
+pprint(diff)
+>>>>>>> a5697e3139c217d5cf11781e7f4da928da21ddcb

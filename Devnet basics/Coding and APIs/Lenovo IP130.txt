@@ -1,0 +1,41 @@
+Lenovo IdeaPad 130 Full Specifications
+General
+Brand 	Lenovo
+Model 	IdeaPad 130
+Model Number 	130
+Series 	IdeaPad
+Dimensions (mm) 	333.00 x 247.00 x 22.40
+Weight (kg) 	2
+Colours 	Onyx Black
+Operating system 	Windows 10
+Battery Capacity (up to hours) 	5
+Battery Cell 	2
+Display
+Size 	15.60-inch
+Resolution 	1366x768 pixels
+Touch Screen 	No
+Processor
+Processor 	Intel Core i3 8th Gen 8250U
+Base Clock Speed 	1.6 GHz
+Cache 	6MB
+Memory
+RAM 	4GB
+RAM Slots 	2
+Expandable RAM up to (GB) 	8
+Graphics
+Graphics Processor 	Intel Integrated UHD Graphics 620
+Storage
+Hard disk 	1TB
+SSD 	No
+Connectivity
+Bluetooth version 	4.1
+Inputs
+Pointer Device 	Touchpad
+Touchpad 	Yes
+Internal Mic 	Yes
+Speakers 	2 Speakers
+Finger Print Sensor 	No
+Ports and slots
+Number of USB Ports 	2
+USB Ports 	2 x USB 3.0
+Mic In 	Yes

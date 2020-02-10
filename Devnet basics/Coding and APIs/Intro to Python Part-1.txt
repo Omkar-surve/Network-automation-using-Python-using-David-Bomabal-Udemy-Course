@@ -1,0 +1,121 @@
+Intro to Python Part-1
+===================================
+
+After installation of Python and its dependencies.
+
+Create new virtual environment:
+===========================
+1) Virtual environment is created using follwoing command
+
+python3 -m venv venv
+
+	First 'venv' represents module for creating virtual environment and second 'venv' represents name of the new virtual environment(it can be anything).
+
+2) Contains of created virtual environment:
+
+source  venv/
+
+/lib 	===> newly installed libraries in venv
+/bin	===> newly added executables.
+
+2) Activating virtual environment:
+
+source venv/bin/activate
+
+3) Deactivating virtual environment:
+
+deactivate
+
+===================================================================================
+String operators:
+
+.format()		==> .format() lets youn insert variables {} in a string and then use the .format() method to insert values into those variables.
+.split()		==> .split() method lets you split the string using the delimiter you provided in ()
+.join()		==> method lets you put a sequence of strings together using, joining them with a separator that you provide.
+
+>>> "Hi, my name is {}!".format("Chris")
+'Hi, my name is Chris!'
+
+>>> "Hi, my name is {name}, and I am a {what}!".format(name="Bob", what="coder")
+'Hi, my name is Bob, and I am a coder!'
+
+>>> "a b c".split(" ")
+['a', 'b', 'c']
+
+>>> ",".join(['a', 'b', 'c'])
+'a,b,c'
+
+========
+Everything is an object!
+
+To access the attributes (variables) or methods (functions) contained within an object, all you need to remember is that you use "." dot-syntax to do so
+
+For example:
+
+>>> a = 57
+>>> a.bit_length()
+6
+
+======================================================================================
+Input, output, and conditionals:
+
+input()	==> Stores inputs from user in a variable. Does no modification to user data.
+
+>>> a = input("what is value of a\n")
+what is value of a
+5
+>>> a
+'5'
+
+
+print()  ==> prints value of the variable
+
+>>> print("Value of a is",a)
+Value of a is 5
+>>> 
+
+Conditionals:
+
+Python if syntax:
+
+if expression_1:
+    statements…
+elif expression_2:
+    statements…
+else:
+    statements…
+
+
+Comparison operators and logical expressions
+
+< 	Less Than
+> 	Greater Than
+<= 	Less Than or Equal To
+>= 	Greater Than or Equal To
+== 	Equal To
+!= 	Not Equal To
+in 	Contains Element
+
+You can combine expressions with and or or. Negate an expression with not.
+
+========================================================================================
+
+Functions:
+
+Python function syntax:
+
+def function_name(arg_1, arg_2):
+    statements...
+    return value
+
+Example:
+
+def add(num1, num2):
+...     result = num1 + num2
+...     return result
+...
+>>>
+>>> add(3, 5)
+8
+
+=========================================================================================
