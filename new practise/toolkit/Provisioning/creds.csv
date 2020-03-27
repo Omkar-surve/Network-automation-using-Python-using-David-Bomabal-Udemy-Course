@@ -1,0 +1,7 @@
+Mgmt,username,password,Hostname
+10.10.2.1,omkar,cisco,R1
+10.10.2.2,omkar,cisco,R2
+10.10.2.3,omkar,cisco,R3
+10.10.2.4,omkar,cisco,R4
+10.10.2.5,omkar,cisco,R5
+10.10.2.6,omkar,cisco,R6

@@ -1,9 +1,9 @@
-#!/usr/bin/env python
 """Encrypting and Decrypting contents of the file using JSON"""
 from netmiko import ConnectHandler
 from simplecrypt import encrypt, decrypt
 import json
 import csv
+from tool import bgp_summary_tool
 from getpass import getpass
 from pprint import pprint
 from time import time
@@ -25,23 +25,14 @@ def devices_detail(devices_info, creds_list):
         devices[device['ip']] = device
     return devices
 
-"""Backup config of devices"""
+def bgp_summary(device_type,device_ip,router_ssh):
+    print(">>>>>>>>>Show bgp summary on "+device_ip)
+    show_commands = ['show bgp ipv4 unicast summary | b Neighbor']#,'show bgp ipv6 unicast summary | b Neighbor']
+    for show_command in show_commands:
+        output = router_ssh.send_command(show_command)
+        data, header = bgp_summary_tool.bgp_summary_filtering(output,device_type,device_ip)
+    return data, header
 
-def print_config(device_type,device_ip,router_ssh):
-    print(">>>>>>>>>>Copying config of router "+device_ip)
-    show_commands_ios = ['show bgp ipv4 unicast summary | b Neighbor']
-    show_commands_iosxr = ['show bgp ipv4 unicast summary | b Neighbor']
-    if device_type == 'cisco_ios':
-        with open('BGP_neighor_details_for_'+device_ip,'w') as f:
-            output = router_ssh.send_command(show_commands_ios[0])
-            f.write(output)
-    if device_type == 'cisco_xr':
-        with open('BGP_neighor_details_for_'+device_ip,'w') as f:
-            output = router_ssh.send_command(show_commands_iosxr[0])
-            f.write(output)
-    return
-
-"""SSH and configure devices"""
 
 def configuring_device(dev_list):
     dev = tuple(dev_list)
@@ -49,11 +40,11 @@ def configuring_device(dev_list):
     router_ssh = ConnectHandler(**device)
     if device['device_type'] == 'cisco_ios':
         print('SSH to cisco ios device '+device['ip'])
-        print_config(device['device_type'],device['ip'],router_ssh)
+        data_1, header = bgp_summary(device['device_type'],device['ip'],router_ssh)
     if device['device_type'] ==  'cisco_xr':
         print('SSH to cisco XR device '+device['ip'])
-        print_config(device['device_type'],device['ip'],router_ssh)
-    return
+        data_1, header = bgp_summary(device['device_type'],device['ip'],router_ssh)
+    return bgp_summary_tool.bgp_summary_report_update(data_1,header)
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 #                                       MAIN SCRIPT
@@ -63,23 +54,23 @@ creds_data = input("Enter name of encrypted credentials file (default: encrypted
 devices_data = input("Enter name of the devices info file (default: devices_info.csv):") or "devices_info.csv"
 password = getpass()
 no_of_threads = Pool(int(input("Enter no. of threads(default 3):") or "3"))
-
+command = input("BGP summary:") or "Yes"
+if command == "Yes":
+    bgp_summary_tool.bgp_add_header("BGP summary")
+else:
+    pass
 start_time = time()
 #below json.loads() command converts encrypted_cred_read.read() bytes data to list which is then decrypted using password as salt
 devices_raw_data = csv.reader(open(devices_data,'r'))
 devices_list = [devices_info for devices_info in devices_raw_data]
 pprint(devices_list)
+print("total device count:"+str(len(devices_list)))
 #below json.loads() command converts encrypted_cred_read.read() bytes data to list which is then decrypted using password as salt
 creds_list = json.loads(decrypt(password,open(creds_data,'rb').read()))
-
 new_device_list = []
 devices_info = devices_detail(devices_list,creds_list)
 for [k,v] in devices_info.items():
     new_device_list.append((v['device_type'],v['ip'],v['username'],v['password']))
 no_of_threads.map(configuring_device,new_device_list)
-#no_of_threads.close()
-#no_of_threads.join()
-
-#no_of_threads.map(configuring_device, args = (v['device_type'],v['ip'],v['username'],v['password']))
 
 print('Elapsed time:'+str(time()-start_time)+'sec')

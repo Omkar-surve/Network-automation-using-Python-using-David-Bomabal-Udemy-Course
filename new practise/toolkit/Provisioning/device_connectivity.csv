@@ -1,0 +1,7 @@
+Router_1,Router1_port,Router_2,Router2_port
+R1,e0/1,R5,Gi0/0/0/0
+R1,e0/2,R2,e0/1
+R2,e0/2,R4,e0/2
+R3,e0/2,R5,Gi0/0/0/1
+R3,e0/1,R4,e0/1
+R4,e0/3,R6,Gi0/0/0/0

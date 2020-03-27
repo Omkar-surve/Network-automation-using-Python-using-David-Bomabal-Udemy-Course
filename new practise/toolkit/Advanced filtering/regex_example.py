@@ -1,7 +1,15 @@
 import re
-raw_data = []
-with open('BGP_neighor_details_for_10.10.2.6','r') as f:
+from pprint import pprint
+from time import time
+
+start_time = time()
+with open('BGP_neighor_details_for_10.10.2.2','r') as f:
     raw_data = f.read().strip().splitlines()
-    
-    lastline = raw_data[-1].strip().split()
-    print(lastline)
+for n in range(0,len(raw_data)):
+    output = re.search(r"\d+\D+\d+.*",raw_data[n])
+    if output:
+        print(output.group(0).strip().split())
+    else:
+        pass
+
+print(str(time()-start_time)+" sec")

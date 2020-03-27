@@ -1,0 +1,7 @@
+Device-type,Mgmt IP,Hostname,ASN,ISP_name
+cisco_ios,10.10.2.1,R1,100,ISP_100
+cisco_ios,10.10.2.2,R2,300,ISP_300
+cisco_ios,10.10.2.3,R3,400,ISP_400
+cisco_ios,10.10.2.4,R4,400,ISP_400
+cisco_xr,10.10.2.5,R5,200,ISP_200
+cisco_xr,10.10.2.6,R6,500,ISP_500
