@@ -1,0 +1,41 @@
+service config
+service timestamps debug datetime msec
+service timestamps log datetime msec
+service password-encryption
+!
+hostname {host}
+!
+enable password cisco
+!
+!
+ip domain name TEST_NSO.com
+ip name-server 10.0.0.2
+ip name-server 8.8.8.8
+ip cef
+ipv6 cef
+!
+username admin privilege 15 password 0 cisco
+username omkar privilege 15 password 0 cisco
+!
+!
+interface Ethernet0/0
+ no shutdown
+ ip address 10.10.3.3 255.255.0.0
+!
+privilege exec level 10 show
+!
+line con 0
+ logging synchronous
+ login local
+ transport output telnet ssh
+line aux 0
+line vty 0 4
+ logging synchronous
+ login local
+ transport input telnet ssh
+ transport output telnet ssh
+!
+crypto key generate rsa
+2048
+!
+end

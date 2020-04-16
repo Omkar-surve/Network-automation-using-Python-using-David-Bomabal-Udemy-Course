@@ -1,0 +1,13 @@
+device-ip,hostname,username,password
+10.10.3.1,cisco_ios,R1,omkar,cisco
+10.10.3.2,cisco_ios,R2,omkar,cisco
+10.10.3.3,cisco_ios,R3,omkar,cisco
+10.10.3.4,cisco_ios,R4,omkar,cisco
+10.10.3.5,cisco_ios,R5,omkar,cisco
+10.10.3.6,cisco_ios,R6,omkar,cisco
+10.10.3.7,cisco_ios,R7,omkar,cisco
+10.10.3.8,cisco_ios,R8,omkar,cisco
+10.10.3.9,cisco_ios,R9,omkar,cisco
+10.10.3.10,cisco_ios,R10,omkar,cisco
+10.10.3.11,cisco_ios,R11,omkar,cisco
+10.10.3.12,cisco_ios,R12,omkar,cisco
