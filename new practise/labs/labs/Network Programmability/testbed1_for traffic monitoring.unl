@@ -4,26 +4,92 @@
   <body>testbed1_for traffic monitoring</body>
   <topology>
     <nodes>
-      <node id="1" name="R1" type="iol" template="iol" image="L3-ADVENTERPRISEK9-M-15.4-2T.bin" ethernet="1" nvram="1024" ram="1024" serial="0" console="" delay="0" icon="Router.png" config="0" left="801" top="198"/>
-      <node id="2" name="R2" type="iol" template="iol" image="L3-ADVENTERPRISEK9-M-15.4-2T.bin" ethernet="1" nvram="1024" ram="1024" serial="0" console="" delay="0" icon="Router.png" config="0" left="711" top="399"/>
-      <node id="3" name="R3" type="iol" template="iol" image="L3-ADVENTERPRISEK9-M-15.4-2T.bin" ethernet="1" nvram="1024" ram="1024" serial="0" console="" delay="0" icon="Router.png" config="0" left="420" top="384"/>
-      <node id="4" name="R4" type="iol" template="iol" image="L3-ADVENTERPRISEK9-M-15.4-2T.bin" ethernet="1" nvram="1024" ram="1024" serial="0" console="" delay="0" icon="Router.png" config="0" left="366" top="174"/>
-      <node id="5" name="R5" type="iol" template="iol" image="L3-ADVENTERPRISEK9-M-15.4-2T.bin" ethernet="1" nvram="1024" ram="1024" serial="0" console="" delay="0" icon="Router.png" config="0" left="579" top="54"/>
-      <node id="6" name="R6" type="iol" template="iol" image="L3-ADVENTERPRISEK9-M-15.4-2T.bin" ethernet="1" nvram="1024" ram="1024" serial="0" console="" delay="0" icon="Router.png" config="0" left="672" top="243">
-        <interface id="0" name="e0/0" type="ethernet" network_id="1"/>
+      <node id="1" name="R1" type="iol" template="iol" image="L3-ADVENTERPRISEK9-M-15.4-2T.bin" ethernet="1" nvram="1024" ram="1024" serial="0" console="" delay="0" icon="Router.png" config="0" left="1014" top="132">
+        <interface id="16" name="e0/1" type="ethernet" network_id="15"/>
+        <interface id="32" name="e0/2" type="ethernet" network_id="2"/>
       </node>
-      <node id="7" name="R7" type="iol" template="iol" image="L3-ADVENTERPRISEK9-M-15.4-2T.bin" ethernet="1" nvram="1024" ram="1024" serial="0" console="" delay="0" icon="Router.png" config="0" left="576" top="333">
-        <interface id="0" name="e0/0" type="ethernet" network_id="1"/>
+      <node id="2" name="R2" type="iol" template="iol" image="L3-ADVENTERPRISEK9-M-15.4-2T.bin" ethernet="1" nvram="1024" ram="1024" serial="0" console="" delay="0" icon="Router.png" config="0" left="975" top="348">
+        <interface id="16" name="e0/1" type="ethernet" network_id="14"/>
+        <interface id="32" name="e0/2" type="ethernet" network_id="2"/>
       </node>
-      <node id="8" name="R8" type="iol" template="iol" image="L3-ADVENTERPRISEK9-M-15.4-2T.bin" ethernet="1" nvram="1024" ram="1024" serial="0" console="" delay="0" icon="Router.png" config="0" left="483" top="243">
-        <interface id="0" name="e0/0" type="ethernet" network_id="1"/>
+      <node id="3" name="R3" type="iol" template="iol" image="i86bi_LinuxL3-AdvEnterpriseK9-M2_157_3_May_2018.bin" ethernet="1" nvram="1024" ram="1024" serial="0" console="" delay="0" icon="Router.png" config="0" left="162" top="312">
+        <interface id="0" name="e0/0" type="ethernet" network_id="4"/>
+        <interface id="16" name="e0/1" type="ethernet" network_id="13"/>
+        <interface id="32" name="e0/2" type="ethernet" network_id="1"/>
       </node>
-      <node id="9" name="R9" type="iol" template="iol" image="L3-ADVENTERPRISEK9-M-15.4-2T.bin" ethernet="1" nvram="1024" ram="1024" serial="0" console="" delay="0" icon="Router.png" config="0" left="576" top="165">
-        <interface id="0" name="e0/0" type="ethernet" network_id="1"/>
+      <node id="4" name="R4" type="iol" template="iol" image="L3-ADVENTERPRISEK9-M-15.4-2T.bin" ethernet="1" nvram="1024" ram="1024" serial="0" console="" delay="0" icon="Router.png" config="0" left="225" top="144">
+        <interface id="16" name="e0/1" type="ethernet" network_id="12"/>
+        <interface id="32" name="e0/2" type="ethernet" network_id="1"/>
+        <interface id="48" name="e0/3" type="ethernet" network_id="3"/>
+      </node>
+      <node id="5" name="R5" type="iol" template="iol" image="L3-ADVENTERPRISEK9-M-15.4-2T.bin" ethernet="1" nvram="1024" ram="1024" serial="0" console="" delay="0" icon="Router.png" config="0" left="447" top="66">
+        <interface id="16" name="e0/1" type="ethernet" network_id="11"/>
+        <interface id="48" name="e0/3" type="ethernet" network_id="3"/>
+      </node>
+      <node id="6" name="R6" type="iol" template="iol" image="L3-ADVENTERPRISEK9-M-15.4-2T.bin" ethernet="2" nvram="1024" ram="1024" serial="0" console="" delay="0" icon="Router.png" config="0" left="702" top="258">
+        <interface id="16" name="e0/1" type="ethernet" network_id="6"/>
+        <interface id="32" name="e0/2" type="ethernet" network_id="8"/>
+        <interface id="48" name="e0/3" type="ethernet" network_id="10"/>
+        <interface id="1" name="e1/0" type="ethernet" network_id="14"/>
+        <interface id="17" name="e1/1" type="ethernet" network_id="15"/>
+      </node>
+      <node id="7" name="R7" type="iol" template="iol" image="L3-ADVENTERPRISEK9-M-15.4-2T.bin" ethernet="2" nvram="1024" ram="1024" serial="0" console="" delay="0" icon="Router.png" config="0" left="540" top="363">
+        <interface id="16" name="e0/1" type="ethernet" network_id="6"/>
+        <interface id="32" name="e0/2" type="ethernet" network_id="7"/>
+        <interface id="48" name="e0/3" type="ethernet" network_id="9"/>
+      </node>
+      <node id="8" name="R8" type="iol" template="iol" image="L3-ADVENTERPRISEK9-M-15.4-2T.bin" ethernet="2" nvram="1024" ram="1024" serial="0" console="" delay="0" icon="Router.png" config="0" left="330" top="261">
+        <interface id="16" name="e0/1" type="ethernet" network_id="5"/>
+        <interface id="32" name="e0/2" type="ethernet" network_id="7"/>
+        <interface id="48" name="e0/3" type="ethernet" network_id="10"/>
+        <interface id="1" name="e1/0" type="ethernet" network_id="12"/>
+        <interface id="17" name="e1/1" type="ethernet" network_id="13"/>
+      </node>
+      <node id="9" name="R9" type="iol" template="iol" image="L3-ADVENTERPRISEK9-M-15.4-2T.bin" ethernet="2" nvram="1024" ram="1024" serial="0" console="" delay="0" icon="Router.png" config="0" left="540" top="177">
+        <interface id="16" name="e0/1" type="ethernet" network_id="5"/>
+        <interface id="32" name="e0/2" type="ethernet" network_id="8"/>
+        <interface id="48" name="e0/3" type="ethernet" network_id="9"/>
+        <interface id="1" name="e1/0" type="ethernet" network_id="11"/>
       </node>
     </nodes>
     <networks>
-      <network id="1" type="pnet0" name="Net" left="573" top="243" visibility="1"/>
+      <network id="5" type="bridge" name="Net-R8iface_16" left="525" top="283" visibility="0"/>
+      <network id="6" type="bridge" name="Net-R7iface_16" left="636" top="373" visibility="0"/>
+      <network id="7" type="bridge" name="Net-R7iface_32" left="636" top="373" visibility="0"/>
+      <network id="8" type="bridge" name="Net-R9iface_32" left="636" top="205" visibility="0"/>
+      <network id="9" type="bridge" name="Net-R9iface_48" left="636" top="205" visibility="0"/>
+      <network id="10" type="bridge" name="Net-R8iface_48" left="525" top="283" visibility="0"/>
+      <network id="11" type="bridge" name="Net-R9iface_1" left="636" top="205" visibility="0"/>
+      <network id="12" type="bridge" name="Net-R8iface_1" left="525" top="283" visibility="0"/>
+      <network id="13" type="bridge" name="Net-R8iface_17" left="525" top="283" visibility="0"/>
+      <network id="14" type="bridge" name="Net-R6iface_1" left="732" top="283" visibility="0"/>
+      <network id="15" type="bridge" name="Net-R6iface_17" left="732" top="283" visibility="0"/>
+      <network id="1" type="bridge" name="Net-R4iface_32" left="201" top="220" visibility="0"/>
+      <network id="2" type="bridge" name="Net-R1iface_32" left="918" top="220" visibility="0"/>
+      <network id="3" type="bridge" name="Net-R4iface_48" left="219" top="190" visibility="0"/>
+      <network id="4" type="pnet0" name="Net" left="147" top="447" visibility="1"/>
     </networks>
   </topology>
+  <objects>
+    <textobjects>
+      <textobject id="1" name="circle1" type="circle">
+        <data>PGRpdiBpZD0iY3VzdG9tU2hhcGUxIiBjbGFzcz0iY3VzdG9tU2hhcGUgY29udGV4dC1tZW51IHVpLXJlc2l6YWJsZSBqdGstZHJhZ2dhYmxlIGRyYWdzdG9wcGVkIiBkYXRhLXBhdGg9IjEiIHN0eWxlPSJkaXNwbGF5OiBpbmxpbmU7IHotaW5kZXg6IDk5OTsgcG9zaXRpb246IGFic29sdXRlOyBsZWZ0OiAxODlweDsgdG9wOiAxMDVweDsiIHdpZHRoPSIxMjBweCIgaGVpZ2h0PSIxMjBweCIgbmFtZT0iY2lyY2xlMSI+PHN2ZyB3aWR0aD0iMTIwIiBoZWlnaHQ9IjEyMCI+PGVsbGlwc2UgY3g9IjYwIiBjeT0iNjAiIHJ4PSI1Ny41IiByeT0iNTcuNSIgc3Ryb2tlPSIjMDAwMDAwIiBzdHJva2Utd2lkdGg9IjIuNSIgZmlsbD0iI2ZmZmZmZiI+PC9lbGxpcHNlPlNvcnJ5LCB5b3VyIGJyb3dzZXIgZG9lcyBub3Qgc3VwcG9ydCBpbmxpbmUgU1ZHLjwvc3ZnPjxkaXYgY2xhc3M9InVpLXJlc2l6YWJsZS1oYW5kbGUgdWktcmVzaXphYmxlLWUiIHN0eWxlPSJ6LWluZGV4OiA5MDsgZGlzcGxheTogYmxvY2s7Ij48L2Rpdj48ZGl2IGNsYXNzPSJ1aS1yZXNpemFibGUtaGFuZGxlIHVpLXJlc2l6YWJsZS1zIiBzdHlsZT0iei1pbmRleDogOTA7IGRpc3BsYXk6IGJsb2NrOyI+PC9kaXY+PGRpdiBjbGFzcz0idWktcmVzaXphYmxlLWhhbmRsZSB1aS1yZXNpemFibGUtc2UgdWktaWNvbiB1aS1pY29uLWdyaXBzbWFsbC1kaWFnb25hbC1zZSIgc3R5bGU9InotaW5kZXg6IDkwOyBkaXNwbGF5OiBibG9jazsiPjwvZGl2PjwvZGl2Pg==</data>
+      </textobject>
+      <textobject id="2" name="circle1" type="circle">
+        <data>PGRpdiBpZD0iY3VzdG9tU2hhcGUyIiBjbGFzcz0iY3VzdG9tU2hhcGUgY29udGV4dC1tZW51IGp0ay1kcmFnZ2FibGUgdWktcmVzaXphYmxlIHVpLXJlc2l6YWJsZS1hdXRvaGlkZSBkcmFnc3RvcHBlZCIgZGF0YS1wYXRoPSIyIiBzdHlsZT0iZGlzcGxheTogaW5saW5lOyB6LWluZGV4OiA5OTk7IHBvc2l0aW9uOiBhYnNvbHV0ZTsgbGVmdDogMzk2cHg7IHRvcDogMjRweDsiIHdpZHRoPSIxMjBweCIgaGVpZ2h0PSIxMjBweCIgbmFtZT0iY2lyY2xlMSI+PHN2ZyB3aWR0aD0iMTIwIiBoZWlnaHQ9IjEyMCI+PGVsbGlwc2UgY3g9IjYwIiBjeT0iNjAiIHJ4PSI1Ny41IiByeT0iNTcuNSIgc3Ryb2tlPSIjMDAwMDAwIiBzdHJva2Utd2lkdGg9IjIuNSIgZmlsbD0iI2ZmZmZmZiI+PC9lbGxpcHNlPlNvcnJ5LCB5b3VyIGJyb3dzZXIgZG9lcyBub3Qgc3VwcG9ydCBpbmxpbmUgU1ZHLjwvc3ZnPjxkaXYgY2xhc3M9InVpLXJlc2l6YWJsZS1oYW5kbGUgdWktcmVzaXphYmxlLWUiIHN0eWxlPSJ6LWluZGV4OiA5MDsgZGlzcGxheTogbm9uZTsiPjwvZGl2PjxkaXYgY2xhc3M9InVpLXJlc2l6YWJsZS1oYW5kbGUgdWktcmVzaXphYmxlLXMiIHN0eWxlPSJ6LWluZGV4OiA5MDsgZGlzcGxheTogbm9uZTsiPjwvZGl2PjxkaXYgY2xhc3M9InVpLXJlc2l6YWJsZS1oYW5kbGUgdWktcmVzaXphYmxlLXNlIHVpLWljb24gdWktaWNvbi1ncmlwc21hbGwtZGlhZ29uYWwtc2UiIHN0eWxlPSJ6LWluZGV4OiA5MDsgZGlzcGxheTogbm9uZTsiPjwvZGl2PjwvZGl2Pg==</data>
+      </textobject>
+      <textobject id="3" name="circle1" type="circle">
+        <data>PGRpdiBpZD0iY3VzdG9tU2hhcGUzIiBjbGFzcz0iY3VzdG9tU2hhcGUgY29udGV4dC1tZW51IGp0ay1kcmFnZ2FibGUgdWktcmVzaXphYmxlIHVpLXJlc2l6YWJsZS1hdXRvaGlkZSBkcmFnc3RvcHBlZCIgZGF0YS1wYXRoPSIzIiBzdHlsZT0iZGlzcGxheTogaW5saW5lOyB6LWluZGV4OiA5OTk7IHBvc2l0aW9uOiBhYnNvbHV0ZTsgbGVmdDogMTE0cHg7IHRvcDogMjc5cHg7IiB3aWR0aD0iMTIwcHgiIGhlaWdodD0iMTIwcHgiIG5hbWU9ImNpcmNsZTEiPjxzdmcgd2lkdGg9IjEyMCIgaGVpZ2h0PSIxMjAiPjxlbGxpcHNlIGN4PSI2MCIgY3k9IjYwIiByeD0iNTcuNSIgcnk9IjU3LjUiIHN0cm9rZT0iIzAwMDAwMCIgc3Ryb2tlLXdpZHRoPSIyLjUiIGZpbGw9IiNmZmZmZmYiPjwvZWxsaXBzZT5Tb3JyeSwgeW91ciBicm93c2VyIGRvZXMgbm90IHN1cHBvcnQgaW5saW5lIFNWRy48L3N2Zz48ZGl2IGNsYXNzPSJ1aS1yZXNpemFibGUtaGFuZGxlIHVpLXJlc2l6YWJsZS1lIiBzdHlsZT0iei1pbmRleDogOTA7IGRpc3BsYXk6IG5vbmU7Ij48L2Rpdj48ZGl2IGNsYXNzPSJ1aS1yZXNpemFibGUtaGFuZGxlIHVpLXJlc2l6YWJsZS1zIiBzdHlsZT0iei1pbmRleDogOTA7IGRpc3BsYXk6IG5vbmU7Ij48L2Rpdj48ZGl2IGNsYXNzPSJ1aS1yZXNpemFibGUtaGFuZGxlIHVpLXJlc2l6YWJsZS1zZSB1aS1pY29uIHVpLWljb24tZ3JpcHNtYWxsLWRpYWdvbmFsLXNlIiBzdHlsZT0iei1pbmRleDogOTA7IGRpc3BsYXk6IG5vbmU7Ij48L2Rpdj48L2Rpdj4=</data>
+      </textobject>
+      <textobject id="4" name="circle1" type="circle">
+        <data>PGRpdiBpZD0iY3VzdG9tU2hhcGU0IiBjbGFzcz0iY3VzdG9tU2hhcGUgY29udGV4dC1tZW51IGp0ay1kcmFnZ2FibGUgdWktcmVzaXphYmxlIGRyYWdzdG9wcGVkIiBkYXRhLXBhdGg9IjQiIHN0eWxlPSJkaXNwbGF5OiBpbmxpbmU7IHotaW5kZXg6IDk5OTsgcG9zaXRpb246IGFic29sdXRlOyBsZWZ0OiAzMjRweDsgdG9wOiAxNTlweDsgd2lkdGg6IDUxMXB4OyBoZWlnaHQ6IDI3M3B4OyIgd2lkdGg9IjEyMHB4IiBoZWlnaHQ9IjEyMHB4IiBuYW1lPSJjaXJjbGUxIj48c3ZnIHdpZHRoPSI1MTEiIGhlaWdodD0iMjczIj48ZWxsaXBzZSBjeD0iMjU1LjUiIGN5PSIxMzYuNSIgcng9IjI1MyIgcnk9IjEzNCIgc3Ryb2tlPSIjMDAwMDAwIiBzdHJva2Utd2lkdGg9IjIuNSIgZmlsbD0iI2ZmZmZmZiI+PC9lbGxpcHNlPlNvcnJ5LCB5b3VyIGJyb3dzZXIgZG9lcyBub3Qgc3VwcG9ydCBpbmxpbmUgU1ZHLjwvc3ZnPjxkaXYgY2xhc3M9InVpLXJlc2l6YWJsZS1oYW5kbGUgdWktcmVzaXphYmxlLWUiIHN0eWxlPSJ6LWluZGV4OiA5MDsiPjwvZGl2PjxkaXYgY2xhc3M9InVpLXJlc2l6YWJsZS1oYW5kbGUgdWktcmVzaXphYmxlLXMiIHN0eWxlPSJ6LWluZGV4OiA5MDsiPjwvZGl2PjxkaXYgY2xhc3M9InVpLXJlc2l6YWJsZS1oYW5kbGUgdWktcmVzaXphYmxlLXNlIHVpLWljb24gdWktaWNvbi1ncmlwc21hbGwtZGlhZ29uYWwtc2UiIHN0eWxlPSJ6LWluZGV4OiA5MDsiPjwvZGl2PjwvZGl2Pg==</data>
+      </textobject>
+      <textobject id="5" name="circle1" type="circle">
+        <data>PGRpdiBpZD0iY3VzdG9tU2hhcGU1IiBjbGFzcz0iY3VzdG9tU2hhcGUgY29udGV4dC1tZW51IGp0ay1kcmFnZ2FibGUgdWktcmVzaXphYmxlIGRyYWdzdG9wcGVkIiBkYXRhLXBhdGg9IjUiIHN0eWxlPSJkaXNwbGF5OiBpbmxpbmU7IHotaW5kZXg6IDk5OTsgcG9zaXRpb246IGFic29sdXRlOyBsZWZ0OiA5OTBweDsgdG9wOiA5OXB4OyIgd2lkdGg9IjEyMHB4IiBoZWlnaHQ9IjEyMHB4IiBuYW1lPSJjaXJjbGUxIj48c3ZnIHdpZHRoPSIxMjAiIGhlaWdodD0iMTIwIj48ZWxsaXBzZSBjeD0iNjAiIGN5PSI2MCIgcng9IjU3LjUiIHJ5PSI1Ny41IiBzdHJva2U9IiMwMDAwMDAiIHN0cm9rZS13aWR0aD0iMi41IiBmaWxsPSIjZmZmZmZmIj48L2VsbGlwc2U+U29ycnksIHlvdXIgYnJvd3NlciBkb2VzIG5vdCBzdXBwb3J0IGlubGluZSBTVkcuPC9zdmc+PGRpdiBjbGFzcz0idWktcmVzaXphYmxlLWhhbmRsZSB1aS1yZXNpemFibGUtZSIgc3R5bGU9InotaW5kZXg6IDkwOyI+PC9kaXY+PGRpdiBjbGFzcz0idWktcmVzaXphYmxlLWhhbmRsZSB1aS1yZXNpemFibGUtcyIgc3R5bGU9InotaW5kZXg6IDkwOyI+PC9kaXY+PGRpdiBjbGFzcz0idWktcmVzaXphYmxlLWhhbmRsZSB1aS1yZXNpemFibGUtc2UgdWktaWNvbiB1aS1pY29uLWdyaXBzbWFsbC1kaWFnb25hbC1zZSIgc3R5bGU9InotaW5kZXg6IDkwOyI+PC9kaXY+PC9kaXY+</data>
+      </textobject>
+      <textobject id="6" name="circle1" type="circle">
+        <data>PGRpdiBpZD0iY3VzdG9tU2hhcGU2IiBjbGFzcz0iY3VzdG9tU2hhcGUgY29udGV4dC1tZW51IGp0ay1kcmFnZ2FibGUgdWktcmVzaXphYmxlIGRyYWdzdG9wcGVkIiBkYXRhLXBhdGg9IjYiIHN0eWxlPSJkaXNwbGF5OiBpbmxpbmU7IHotaW5kZXg6IDk5OTsgcG9zaXRpb246IGFic29sdXRlOyBsZWZ0OiA5NDVweDsgdG9wOiAzMjdweDsiIHdpZHRoPSIxMjBweCIgaGVpZ2h0PSIxMjBweCIgbmFtZT0iY2lyY2xlMSI+PHN2ZyB3aWR0aD0iMTIwIiBoZWlnaHQ9IjEyMCI+PGVsbGlwc2UgY3g9IjYwIiBjeT0iNjAiIHJ4PSI1Ny41IiByeT0iNTcuNSIgc3Ryb2tlPSIjMDAwMDAwIiBzdHJva2Utd2lkdGg9IjIuNSIgZmlsbD0iI2ZmZmZmZiI+PC9lbGxpcHNlPlNvcnJ5LCB5b3VyIGJyb3dzZXIgZG9lcyBub3Qgc3VwcG9ydCBpbmxpbmUgU1ZHLjwvc3ZnPjxkaXYgY2xhc3M9InVpLXJlc2l6YWJsZS1oYW5kbGUgdWktcmVzaXphYmxlLWUiIHN0eWxlPSJ6LWluZGV4OiA5MDsiPjwvZGl2PjxkaXYgY2xhc3M9InVpLXJlc2l6YWJsZS1oYW5kbGUgdWktcmVzaXphYmxlLXMiIHN0eWxlPSJ6LWluZGV4OiA5MDsiPjwvZGl2PjxkaXYgY2xhc3M9InVpLXJlc2l6YWJsZS1oYW5kbGUgdWktcmVzaXphYmxlLXNlIHVpLWljb24gdWktaWNvbi1ncmlwc21hbGwtZGlhZ29uYWwtc2UiIHN0eWxlPSJ6LWluZGV4OiA5MDsiPjwvZGl2PjwvZGl2Pg==</data>
+      </textobject>
+    </textobjects>
+  </objects>
 </lab>
