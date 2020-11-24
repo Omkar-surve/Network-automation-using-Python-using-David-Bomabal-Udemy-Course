@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<lab name="Best Path atrribute__origin type" version="1" scripttimeout="300" lock="0" author="omkar">
+  <description>Origin Type attribute</description>
+  <topology>
+    <nodes>
+      <node id="1" name="CSR1" type="qemu" template="csr1000v" image="csr1000v-3.16.00.S.155-3.S" console="telnet" cpu="1" cpulimit="1" ram="3072" ethernet="4" uuid="3b47ca5d-f698-45d8-83ce-b09acc3dc226" qemu_options="-machine type=pc-1.0,accel=kvm -serial mon:stdio -nographic -no-user-config -nodefaults -rtc base=utc" qemu_version="3.1.0" qemu_arch="x86_64" delay="0" icon="CSRv1000.png" config="0" left="462" top="434">
+        <interface id="0" name="Gi1" type="ethernet" network_id="5"/>
+        <interface id="1" name="Gi2" type="ethernet" network_id="6"/>
+      </node>
+      <node id="2" name="XR2" type="qemu" template="xrv" image="xrv-k9-5.2.2" console="telnet" cpu="1" cpulimit="1" ram="2048" ethernet="4" uuid="511ffc5c-1276-484a-a1cf-f90eb877fa29" qemu_options="-machine type=pc,accel=kvm,usb=off -serial mon:stdio -nographic -no-user-config -nodefaults -rtc base=utc,driftfix=slew -global kvm-pit.lost_tick_policy=discard -no-hpet -realtime mlock=off -no-shutdown -boot order=c" qemu_version="2.4.0" qemu_arch="x86_64" qemu_nic="virtio-net-pci" delay="0" icon="XR.png" config="0" left="304" top="432">
+        <interface id="1" name="Gi0/0/0/0" type="ethernet" network_id="5"/>
+        <interface id="2" name="Gi0/0/0/1" type="ethernet" network_id="8"/>
+      </node>
+      <node id="3" name="XR3" type="qemu" template="xrv" image="xrv-k9-5.2.2" console="telnet" cpu="1" cpulimit="1" ram="2048" ethernet="4" uuid="db5cfb75-a95c-41d4-bd4c-b99ae994a328" qemu_options="-machine type=pc,accel=kvm,usb=off -serial mon:stdio -nographic -no-user-config -nodefaults -rtc base=utc,driftfix=slew -global kvm-pit.lost_tick_policy=discard -no-hpet -realtime mlock=off -no-shutdown -boot order=c" qemu_version="2.4.0" qemu_arch="x86_64" qemu_nic="virtio-net-pci" delay="0" icon="XR.png" config="0" left="624" top="432">
+        <interface id="1" name="Gi0/0/0/0" type="ethernet" network_id="6"/>
+        <interface id="2" name="Gi0/0/0/1" type="ethernet" network_id="9"/>
+      </node>
+      <node id="4" name="CSR4" type="qemu" template="csr1000v" image="csr1000v-3.16.00.S.155-3.S" console="telnet" cpu="1" cpulimit="1" ram="3072" ethernet="4" uuid="0ef229c7-0b2a-4d37-b40a-9308273e63fb" qemu_options="-machine type=pc-1.0,accel=kvm -serial mon:stdio -nographic -no-user-config -nodefaults -rtc base=utc" qemu_version="3.1.0" qemu_arch="x86_64" delay="0" icon="CSRv1000.png" config="0" left="304" top="310">
+        <interface id="0" name="Gi1" type="ethernet" network_id="3"/>
+        <interface id="1" name="Gi2" type="ethernet" network_id="7"/>
+        <interface id="2" name="Gi3" type="ethernet" network_id="8"/>
+      </node>
+      <node id="5" name="CSR5" type="qemu" template="csr1000v" image="csr1000v-3.16.00.S.155-3.S" console="telnet" cpu="1" cpulimit="1" ram="3072" ethernet="4" uuid="dfc31b58-d013-488b-989e-fb7bb76cca58" qemu_options="-machine type=pc-1.0,accel=kvm -serial mon:stdio -nographic -no-user-config -nodefaults -rtc base=utc" qemu_version="3.1.0" qemu_arch="x86_64" delay="0" icon="CSRv1000.png" config="0" left="454" top="310">
+        <interface id="0" name="Gi1" type="ethernet" network_id="3"/>
+        <interface id="1" name="Gi2" type="ethernet" network_id="4"/>
+      </node>
+      <node id="6" name="CSR6" type="qemu" template="csr1000v" image="csr1000v-3.16.00.S.155-3.S" console="telnet" cpu="1" cpulimit="1" ram="3072" ethernet="4" uuid="3bfd7677-1ae2-48ab-b9ec-7592b4b1da32" qemu_options="-machine type=pc-1.0,accel=kvm -serial mon:stdio -nographic -no-user-config -nodefaults -rtc base=utc" qemu_version="3.1.0" qemu_arch="x86_64" delay="0" icon="CSRv1000.png" config="0" left="624" top="310">
+        <interface id="0" name="Gi1" type="ethernet" network_id="4"/>
+        <interface id="1" name="Gi2" type="ethernet" network_id="9"/>
+      </node>
+      <node id="7" name="CSR7" type="qemu" template="csr1000v" image="csr1000v-3.16.00.S.155-3.S" console="telnet" cpu="1" cpulimit="1" ram="3072" ethernet="4" uuid="499f1ddb-5371-47be-9042-450ceb85fb4d" qemu_options="-machine type=pc-1.0,accel=kvm -serial mon:stdio -nographic -no-user-config -nodefaults -rtc base=utc" qemu_version="3.1.0" qemu_arch="x86_64" delay="0" icon="CSRv1000.png" config="0" left="306" top="192">
+        <interface id="0" name="Gi1" type="ethernet" network_id="2"/>
+        <interface id="1" name="Gi2" type="ethernet" network_id="7"/>
+      </node>
+      <node id="8" name="XR8" type="qemu" template="xrv" image="xrv-k9-5.2.2" console="telnet" cpu="1" cpulimit="1" ram="2048" ethernet="4" uuid="38bdad08-0b67-4555-8fe0-f7905bd0b194" qemu_options="-machine type=pc,accel=kvm,usb=off -serial mon:stdio -nographic -no-user-config -nodefaults -rtc base=utc,driftfix=slew -global kvm-pit.lost_tick_policy=discard -no-hpet -realtime mlock=off -no-shutdown -boot order=c" qemu_version="2.4.0" qemu_arch="x86_64" qemu_nic="virtio-net-pci" delay="0" icon="XR.png" config="0" left="456" top="190">
+        <interface id="1" name="Gi0/0/0/0" type="ethernet" network_id="2"/>
+        <interface id="2" name="Gi0/0/0/1" type="ethernet" network_id="1"/>
+      </node>
+      <node id="9" name="XR9" type="qemu" template="xrv" image="xrv-k9-5.2.2" console="telnet" cpu="1" cpulimit="1" ram="2048" ethernet="4" uuid="0a0a770a-794d-4428-afd2-24c085e8dc94" qemu_options="-machine type=pc,accel=kvm,usb=off -serial mon:stdio -nographic -no-user-config -nodefaults -rtc base=utc,driftfix=slew -global kvm-pit.lost_tick_policy=discard -no-hpet -realtime mlock=off -no-shutdown -boot order=c" qemu_version="2.4.0" qemu_arch="x86_64" qemu_nic="virtio-net-pci" delay="0" icon="XR.png" config="0" left="616" top="190">
+        <interface id="1" name="Gi0/0/0/0" type="ethernet" network_id="1"/>
+      </node>
+    </nodes>
+    <networks>
+      <network id="1" type="bridge" name="Net-XR9-Gi0/0/0/0" left="666" top="230" visibility="0"/>
+      <network id="2" type="bridge" name="Net-XR8-Gi0/0/0/0" left="506" top="230" visibility="0"/>
+      <network id="3" type="bridge" name="Net-CSR5-Gi1" left="504" top="350" visibility="0"/>
+      <network id="4" type="bridge" name="Net-CSR5-Gi2" left="504" top="350" visibility="0"/>
+      <network id="5" type="bridge" name="Net-CSR1-Gi1" left="512" top="474" visibility="0"/>
+      <network id="6" type="bridge" name="Net-CSR1-Gi2" left="512" top="474" visibility="0"/>
+      <network id="7" type="bridge" name="Net-CSR7-Gi2" left="356" top="232" visibility="0"/>
+      <network id="8" type="bridge" name="Net-CSR4-Gi3" left="354" top="350" visibility="0"/>
+      <network id="9" type="bridge" name="Net-CSR6-Gi2" left="674" top="350" visibility="0"/>
+    </networks>
+  </topology>
+  <objects>
+    <textobjects>
+      <textobject id="1" name="txt 1" type="text">
+        <data>PGRpdiBpZD0iY3VzdG9tVGV4dDEiIGNsYXNzPSJjdXN0b21TaGFwZSBjdXN0b21UZXh0IGNvbnRleHQtbWVudSB1aS1yZXNpemFibGUtYXV0b2hpZGUiIGRhdGEtcGF0aD0iMSIgc3R5bGU9ImRpc3BsYXk6IGlubGluZTsgcG9zaXRpb246IGFic29sdXRlOyBsZWZ0OiAzNjBweDsgdG9wOiAxOTBweDsgY3Vyc29yOiBtb3ZlOyB6LWluZGV4OiAxMDAxOyB3aWR0aDogYXV0bzsgcmlnaHQ6IGF1dG87IGhlaWdodDogMjhweDsgYm90dG9tOiBhdXRvOyI+PHAgYWxpZ249ImNlbnRlciIgc3R5bGU9InZlcnRpY2FsLWFsaWduOnRvcDtjb2xvcjojMDAwMDAwO2JhY2tncm91bmQtY29sb3I6I2ZmZmZmZjtmb250LXNpemU6MTRweDtmb250LXdlaWdodDogbm9ybWFsOyIgY29udGVudGVkaXRhYmxlPSJmYWxzZSIgY2xhc3M9IiI+MjAxMjoxOjc4OjowLzY0PC9wPjwvZGl2Pg==</data>
+      </textobject>
+      <textobject id="2" name="txt 2" type="text">
+        <data>PGRpdiBpZD0iY3VzdG9tVGV4dDIiIGNsYXNzPSJjdXN0b21TaGFwZSBjdXN0b21UZXh0IGNvbnRleHQtbWVudSB1aS1yZXNpemFibGUtYXV0b2hpZGUiIGRhdGEtcGF0aD0iMiIgc3R5bGU9ImRpc3BsYXk6IGlubGluZTsgcG9zaXRpb246IGFic29sdXRlOyBsZWZ0OiA1MTRweDsgdG9wOiAxOTIuNXB4OyBjdXJzb3I6IG1vdmU7IHotaW5kZXg6IDEwMDE7IHdpZHRoOiBhdXRvOyByaWdodDogYXV0bzsgaGVpZ2h0OiAyOHB4OyBib3R0b206IGF1dG87Ij48cCBhbGlnbj0iY2VudGVyIiBzdHlsZT0idmVydGljYWwtYWxpZ246dG9wO2NvbG9yOiMwMDAwMDA7YmFja2dyb3VuZC1jb2xvcjojZmZmZmZmO2ZvbnQtc2l6ZToxNHB4O2ZvbnQtd2VpZ2h0OiBub3JtYWw7IiBjb250ZW50ZWRpdGFibGU9ImZhbHNlIiBjbGFzcz0iIj4yMDEyOjE6ODk6OjAvNjQ8L3A+PC9kaXY+</data>
+      </textobject>
+      <textobject id="3" name="txt 3" type="text">
+        <data>PGRpdiBpZD0iY3VzdG9tVGV4dDMiIGNsYXNzPSJjdXN0b21TaGFwZSBjdXN0b21UZXh0IGNvbnRleHQtbWVudSB1aS1yZXNpemFibGUtYXV0b2hpZGUiIGRhdGEtcGF0aD0iMyIgc3R5bGU9ImRpc3BsYXk6IGlubGluZTsgcG9zaXRpb246IGFic29sdXRlOyBsZWZ0OiAzMzZweDsgdG9wOiAyNzQuNXB4OyBjdXJzb3I6IG1vdmU7IHotaW5kZXg6IDEwMDE7IHdpZHRoOiBhdXRvOyByaWdodDogYXV0bzsgaGVpZ2h0OiAyOHB4OyBib3R0b206IGF1dG87Ij48cCBhbGlnbj0iY2VudGVyIiBzdHlsZT0idmVydGljYWwtYWxpZ246dG9wO2NvbG9yOiMwMDAwMDA7YmFja2dyb3VuZC1jb2xvcjojZmZmZmZmO2ZvbnQtc2l6ZToxNHB4O2ZvbnQtd2VpZ2h0OiBub3JtYWw7IiBjb250ZW50ZWRpdGFibGU9ImZhbHNlIiBjbGFzcz0iIj4yMDEyOjE6NDc6OjAvNjQ8L3A+PC9kaXY+</data>
+      </textobject>
+      <textobject id="4" name="txt 4" type="text">
+        <data>PGRpdiBpZD0iY3VzdG9tVGV4dDQiIGNsYXNzPSJjdXN0b21TaGFwZSBjdXN0b21UZXh0IGNvbnRleHQtbWVudSB1aS1yZXNpemFibGUtYXV0b2hpZGUiIGRhdGEtcGF0aD0iNCIgc3R5bGU9ImRpc3BsYXk6IGlubGluZTsgcG9zaXRpb246IGFic29sdXRlOyBsZWZ0OiAzNjBweDsgdG9wOiAzMTQuNXB4OyBjdXJzb3I6IG1vdmU7IHotaW5kZXg6IDEwMDE7IHdpZHRoOiBhdXRvOyByaWdodDogYXV0bzsgaGVpZ2h0OiAyOHB4OyBib3R0b206IGF1dG87Ij48cCBhbGlnbj0iY2VudGVyIiBzdHlsZT0idmVydGljYWwtYWxpZ246dG9wO2NvbG9yOiMwMDAwMDA7YmFja2dyb3VuZC1jb2xvcjojZmZmZmZmO2ZvbnQtc2l6ZToxNHB4O2ZvbnQtd2VpZ2h0OiBub3JtYWw7IiBjb250ZW50ZWRpdGFibGU9ImZhbHNlIiBjbGFzcz0iIj4yMDEyOjE6NDU6OjAvNjQ8L3A+PC9kaXY+</data>
+      </textobject>
+      <textobject id="5" name="txt 5" type="text">
+        <data>PGRpdiBpZD0iY3VzdG9tVGV4dDUiIGNsYXNzPSJjdXN0b21TaGFwZSBjdXN0b21UZXh0IGNvbnRleHQtbWVudSB1aS1yZXNpemFibGUtYXV0b2hpZGUiIGRhdGEtcGF0aD0iNSIgc3R5bGU9ImRpc3BsYXk6IGlubGluZTsgcG9zaXRpb246IGFic29sdXRlOyBsZWZ0OiA1MjBweDsgdG9wOiAzMTAuNXB4OyBjdXJzb3I6IG1vdmU7IHotaW5kZXg6IDEwMDE7IHdpZHRoOiBhdXRvOyByaWdodDogYXV0bzsgaGVpZ2h0OiAyOHB4OyBib3R0b206IGF1dG87Ij48cCBhbGlnbj0iY2VudGVyIiBzdHlsZT0idmVydGljYWwtYWxpZ246dG9wO2NvbG9yOiMwMDAwMDA7YmFja2dyb3VuZC1jb2xvcjojZmZmZmZmO2ZvbnQtc2l6ZToxNHB4O2ZvbnQtd2VpZ2h0OiBub3JtYWw7IiBjb250ZW50ZWRpdGFibGU9ImZhbHNlIiBjbGFzcz0iIj4yMDEyOjE6NTY6OjAvNjQ8L3A+PC9kaXY+</data>
+      </textobject>
+      <textobject id="6" name="txt 6" type="text">
+        <data>PGRpdiBpZD0iY3VzdG9tVGV4dDYiIGNsYXNzPSJjdXN0b21TaGFwZSBjdXN0b21UZXh0IGNvbnRleHQtbWVudSB1aS1yZXNpemFibGUtYXV0b2hpZGUiIGRhdGEtcGF0aD0iNiIgc3R5bGU9ImRpc3BsYXk6IGlubGluZTsgcG9zaXRpb246IGFic29sdXRlOyBsZWZ0OiAzMzZweDsgdG9wOiAzOTQuNXB4OyBjdXJzb3I6IG1vdmU7IHotaW5kZXg6IDEwMDE7IHdpZHRoOiBhdXRvOyByaWdodDogYXV0bzsgaGVpZ2h0OiAyOHB4OyBib3R0b206IGF1dG87Ij48cCBhbGlnbj0iY2VudGVyIiBzdHlsZT0idmVydGljYWwtYWxpZ246dG9wO2NvbG9yOiMwMDAwMDA7YmFja2dyb3VuZC1jb2xvcjojZmZmZmZmO2ZvbnQtc2l6ZToxNHB4O2ZvbnQtd2VpZ2h0OiBub3JtYWw7IiBjb250ZW50ZWRpdGFibGU9ImZhbHNlIiBjbGFzcz0iIj4yMDEyOjE6MjQ6OjAvNjQ8L3A+PC9kaXY+</data>
+      </textobject>
+      <textobject id="7" name="txt 7" type="text">
+        <data>PGRpdiBpZD0iY3VzdG9tVGV4dDciIGNsYXNzPSJjdXN0b21TaGFwZSBjdXN0b21UZXh0IGNvbnRleHQtbWVudSB1aS1yZXNpemFibGUtYXV0b2hpZGUiIGRhdGEtcGF0aD0iNyIgc3R5bGU9ImRpc3BsYXk6IGlubGluZTsgcG9zaXRpb246IGFic29sdXRlOyBsZWZ0OiAzNjBweDsgdG9wOiA0MzQuNXB4OyBjdXJzb3I6IG1vdmU7IHotaW5kZXg6IDEwMDE7IHdpZHRoOiBhdXRvOyByaWdodDogYXV0bzsgaGVpZ2h0OiAyOHB4OyBib3R0b206IGF1dG87Ij48cCBhbGlnbj0iY2VudGVyIiBzdHlsZT0idmVydGljYWwtYWxpZ246dG9wO2NvbG9yOiMwMDAwMDA7YmFja2dyb3VuZC1jb2xvcjojZmZmZmZmO2ZvbnQtc2l6ZToxNHB4O2ZvbnQtd2VpZ2h0OiBub3JtYWw7IiBjb250ZW50ZWRpdGFibGU9ImZhbHNlIiBjbGFzcz0iIj4yMDEyOjE6MTI6OjAvNjQ8L3A+PC9kaXY+</data>
+      </textobject>
+      <textobject id="8" name="txt 8" type="text">
+        <data>PGRpdiBpZD0iY3VzdG9tVGV4dDgiIGNsYXNzPSJjdXN0b21TaGFwZSBjdXN0b21UZXh0IGNvbnRleHQtbWVudSB1aS1yZXNpemFibGUtYXV0b2hpZGUiIGRhdGEtcGF0aD0iOCIgc3R5bGU9ImRpc3BsYXk6IGlubGluZTsgcG9zaXRpb246IGFic29sdXRlOyBsZWZ0OiA1MThweDsgdG9wOiA0MzYuNXB4OyBjdXJzb3I6IG1vdmU7IHotaW5kZXg6IDEwMDE7IHdpZHRoOiBhdXRvOyByaWdodDogYXV0bzsgaGVpZ2h0OiAyOHB4OyBib3R0b206IGF1dG87Ij48cCBhbGlnbj0iY2VudGVyIiBzdHlsZT0idmVydGljYWwtYWxpZ246dG9wO2NvbG9yOiMwMDAwMDA7YmFja2dyb3VuZC1jb2xvcjojZmZmZmZmO2ZvbnQtc2l6ZToxNHB4O2ZvbnQtd2VpZ2h0OiBub3JtYWw7IiBjb250ZW50ZWRpdGFibGU9ImZhbHNlIiBjbGFzcz0iIj4yMDEyOjE6MTM6OjAvNjQ8L3A+PC9kaXY+</data>
+      </textobject>
+      <textobject id="9" name="txt 9" type="text">
+        <data>PGRpdiBpZD0iY3VzdG9tVGV4dDkiIGNsYXNzPSJjdXN0b21TaGFwZSBjdXN0b21UZXh0IGNvbnRleHQtbWVudSB1aS1yZXNpemFibGUtYXV0b2hpZGUiIGRhdGEtcGF0aD0iOSIgc3R5bGU9ImRpc3BsYXk6IGlubGluZTsgcG9zaXRpb246IGFic29sdXRlOyBsZWZ0OiA1NDJweDsgdG9wOiAzOTAuNXB4OyBjdXJzb3I6IG1vdmU7IHotaW5kZXg6IDEwMDE7IHdpZHRoOiBhdXRvOyByaWdodDogYXV0bzsgaGVpZ2h0OiAyNnB4OyBib3R0b206IGF1dG87Ij48cCBhbGlnbj0iY2VudGVyIiBzdHlsZT0idmVydGljYWwtYWxpZ246IHRvcDsgY29sb3I6IHJnYigwLCAwLCAwKTsgYmFja2dyb3VuZC1jb2xvcjogcmdiKDI1NSwgMjU1LCAyNTUpOyBmb250LXNpemU6IDEzcHg7IGZvbnQtd2VpZ2h0OiBub3JtYWw7IiBjb250ZW50ZWRpdGFibGU9ImZhbHNlIiBjbGFzcz0iIj4yMDEyOjE6MzY6OjAvNjQ8L3A+PC9kaXY+</data>
+      </textobject>
+      <textobject id="10" name="txt 10" type="text">
+        <data>PGRpdiBpZD0iY3VzdG9tVGV4dDEwIiBjbGFzcz0iY3VzdG9tU2hhcGUgY3VzdG9tVGV4dCBjb250ZXh0LW1lbnUgdWktZHJhZ2dhYmxlIHVpLWRyYWdnYWJsZS1oYW5kbGUgdWktcmVzaXphYmxlIHVpLWRyYWdnYWJsZS1kcmFnZ2luZyIgZGF0YS1wYXRoPSIxMCIgc3R5bGU9ImRpc3BsYXk6IGlubGluZTsgcG9zaXRpb246IGFic29sdXRlOyBsZWZ0OiAzNTJweDsgdG9wOiAxMzZweDsgY3Vyc29yOiBtb3ZlOyB6LWluZGV4OiAxMDAxOyB3aWR0aDogMjUwcHg7IHJpZ2h0OiBhdXRvOyBoZWlnaHQ6IDI0cHg7IGJvdHRvbTogYXV0bzsiPjxwIGFsaWduPSJjZW50ZXIiIHN0eWxlPSJ2ZXJ0aWNhbC1hbGlnbjp0b3A7Y29sb3I6IzAwMDAwMDtiYWNrZ3JvdW5kLWNvbG9yOiNmZmZmZmY7Zm9udC1zaXplOjE3cHg7Zm9udC13ZWlnaHQ6IGJvbGQ7Ij5CZXN0IFBhdGggYXR0cmlidXRlX09yaWdpbiB0eXBlPC9wPjxkaXYgY2xhc3M9InVpLXJlc2l6YWJsZS1oYW5kbGUgdWktcmVzaXphYmxlLWUiIHN0eWxlPSJ6LWluZGV4OiA5MDsgZGlzcGxheTogYmxvY2s7Ij48L2Rpdj48ZGl2IGNsYXNzPSJ1aS1yZXNpemFibGUtaGFuZGxlIHVpLXJlc2l6YWJsZS1zIiBzdHlsZT0iei1pbmRleDogOTA7IGRpc3BsYXk6IGJsb2NrOyI+PC9kaXY+PGRpdiBjbGFzcz0idWktcmVzaXphYmxlLWhhbmRsZSB1aS1yZXNpemFibGUtc2UgdWktaWNvbiB1aS1pY29uLWdyaXBzbWFsbC1kaWFnb25hbC1zZSIgc3R5bGU9InotaW5kZXg6IDkwOyBkaXNwbGF5OiBibG9jazsiPjwvZGl2PjwvZGl2Pg==</data>
+      </textobject>
+    </textobjects>
+  </objects>
+</lab>

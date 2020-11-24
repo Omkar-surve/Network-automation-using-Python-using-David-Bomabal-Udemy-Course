@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<lab name="basic MPLS VPN MP-BGP" version="1" scripttimeout="300" lock="0" author="omkar">
+  <body>
+
+</body>
+  <topology>
+    <nodes>
+      <node id="1" name="XR1" type="qemu" template="xrv" image="xrv-k9-5.2.2" console="telnet" cpu="1" cpulimit="1" ram="2048" ethernet="5" uuid="538444a2-861b-4a43-a082-40dbdfd365c3" qemu_options="-machine type=pc,accel=kvm,usb=off -serial mon:stdio -nographic -no-user-config -nodefaults -rtc base=utc,driftfix=slew -global kvm-pit.lost_tick_policy=discard -no-hpet -realtime mlock=off -no-shutdown -boot order=c" qemu_version="2.4.0" qemu_arch="x86_64" qemu_nic="virtio-net-pci" delay="0" icon="XR.png" config="0" left="270" top="92">
+        <interface id="1" name="Gi0/0/0/0" type="ethernet" network_id="7"/>
+        <interface id="2" name="Gi0/0/0/1" type="ethernet" network_id="11"/>
+        <interface id="3" name="Gi0/0/0/2" type="ethernet" network_id="12"/>
+      </node>
+      <node id="2" name="XR2" type="qemu" template="xrv" image="xrv-k9-5.2.2" console="telnet" cpu="1" cpulimit="1" ram="2048" ethernet="5" uuid="4b841deb-c29b-4bee-8841-e285b2f8dae4" qemu_options="-machine type=pc,accel=kvm,usb=off -serial mon:stdio -nographic -no-user-config -nodefaults -rtc base=utc,driftfix=slew -global kvm-pit.lost_tick_policy=discard -no-hpet -realtime mlock=off -no-shutdown -boot order=c" qemu_version="2.4.0" qemu_arch="x86_64" qemu_nic="virtio-net-pci" delay="0" icon="XR.png" config="0" left="260" top="342">
+        <interface id="1" name="Gi0/0/0/0" type="ethernet" network_id="8"/>
+        <interface id="2" name="Gi0/0/0/1" type="ethernet" network_id="13"/>
+        <interface id="3" name="Gi0/0/0/2" type="ethernet" network_id="14"/>
+      </node>
+      <node id="3" name="XR3" type="qemu" template="xrv" image="xrv-k9-5.2.2" console="telnet" cpu="1" cpulimit="1" ram="2048" ethernet="5" uuid="07d6119a-0ca2-46e4-ba81-5e5b40b81727" qemu_options="-machine type=pc,accel=kvm,usb=off -serial mon:stdio -nographic -no-user-config -nodefaults -rtc base=utc,driftfix=slew -global kvm-pit.lost_tick_policy=discard -no-hpet -realtime mlock=off -no-shutdown -boot order=c" qemu_version="2.4.0" qemu_arch="x86_64" qemu_nic="virtio-net-pci" delay="0" icon="XR.png" config="0" left="752" top="104">
+        <interface id="1" name="Gi0/0/0/0" type="ethernet" network_id="9"/>
+        <interface id="2" name="Gi0/0/0/1" type="ethernet" network_id="17"/>
+        <interface id="3" name="Gi0/0/0/2" type="ethernet" network_id="18"/>
+      </node>
+      <node id="4" name="XR4" type="qemu" template="xrv" image="xrv-k9-5.2.2" console="telnet" cpu="1" cpulimit="1" ram="2048" ethernet="5" uuid="e76041f3-eaac-4bb3-9fdf-fddc9ef69682" qemu_options="-machine type=pc,accel=kvm,usb=off -serial mon:stdio -nographic -no-user-config -nodefaults -rtc base=utc,driftfix=slew -global kvm-pit.lost_tick_policy=discard -no-hpet -realtime mlock=off -no-shutdown -boot order=c" qemu_version="2.4.0" qemu_arch="x86_64" qemu_nic="virtio-net-pci" delay="0" icon="XR.png" config="0" left="742" top="334">
+        <interface id="1" name="Gi0/0/0/0" type="ethernet" network_id="10"/>
+        <interface id="2" name="Gi0/0/0/1" type="ethernet" network_id="15"/>
+        <interface id="3" name="Gi0/0/0/2" type="ethernet" network_id="16"/>
+      </node>
+      <node id="5" name="CSR5" type="qemu" template="csr1000v" image="csr1000v-3.16.00.S.155-3.S" console="telnet" cpu="1" cpulimit="1" ram="3072" ethernet="4" uuid="52a5076a-9060-4f99-b829-dcb788970af2" qemu_options="-machine type=pc-1.0,accel=kvm -serial mon:stdio -nographic -no-user-config -nodefaults -rtc base=utc" qemu_version="3.1.0" qemu_arch="x86_64" delay="0" icon="CSRv1000.png" config="0" left="400" top="158">
+        <interface id="0" name="Gi1" type="ethernet" network_id="1"/>
+        <interface id="1" name="Gi2" type="ethernet" network_id="3"/>
+        <interface id="2" name="Gi3" type="ethernet" network_id="6"/>
+        <interface id="3" name="Gi4" type="ethernet" network_id="7"/>
+      </node>
+      <node id="6" name="CSR6" type="qemu" template="csr1000v" image="csr1000v-3.16.00.S.155-3.S" console="telnet" cpu="1" cpulimit="1" ram="3072" ethernet="4" uuid="c787251f-4bf3-4d97-9ef2-360356db28dc" qemu_options="-machine type=pc-1.0,accel=kvm -serial mon:stdio -nographic -no-user-config -nodefaults -rtc base=utc" qemu_version="3.1.0" qemu_arch="x86_64" delay="0" icon="CSRv1000.png" config="0" left="410" top="308">
+        <interface id="0" name="Gi1" type="ethernet" network_id="2"/>
+        <interface id="1" name="Gi2" type="ethernet" network_id="3"/>
+        <interface id="2" name="Gi3" type="ethernet" network_id="5"/>
+        <interface id="3" name="Gi4" type="ethernet" network_id="8"/>
+      </node>
+      <node id="7" name="CSR7" type="qemu" template="csr1000v" image="csr1000v-3.16.00.S.155-3.S" console="telnet" cpu="1" cpulimit="1" ram="3072" ethernet="4" uuid="bfceffc2-3eb4-4e40-afb0-21091cde5c8e" qemu_options="-machine type=pc-1.0,accel=kvm -serial mon:stdio -nographic -no-user-config -nodefaults -rtc base=utc" qemu_version="3.1.0" qemu_arch="x86_64" delay="0" icon="CSRv1000.png" config="0" left="620" top="158">
+        <interface id="0" name="Gi1" type="ethernet" network_id="1"/>
+        <interface id="1" name="Gi2" type="ethernet" network_id="4"/>
+        <interface id="2" name="Gi3" type="ethernet" network_id="5"/>
+        <interface id="3" name="Gi4" type="ethernet" network_id="9"/>
+      </node>
+      <node id="8" name="CSR8" type="qemu" template="csr1000v" image="csr1000v-3.16.00.S.155-3.S" console="telnet" cpu="1" cpulimit="1" ram="3072" ethernet="4" uuid="20dd658c-680e-4988-8010-99bf83bb21d9" qemu_options="-machine type=pc-1.0,accel=kvm -serial mon:stdio -nographic -no-user-config -nodefaults -rtc base=utc" qemu_version="3.1.0" qemu_arch="x86_64" delay="0" icon="CSRv1000.png" config="0" left="620" top="298">
+        <interface id="0" name="Gi1" type="ethernet" network_id="2"/>
+        <interface id="1" name="Gi2" type="ethernet" network_id="4"/>
+        <interface id="2" name="Gi3" type="ethernet" network_id="6"/>
+        <interface id="3" name="Gi4" type="ethernet" network_id="10"/>
+      </node>
+      <node id="9" name="R9" type="iol" template="iol" image="L3-ADVENTERPRISEK9-M-15.5-2T.bin" ethernet="1" nvram="1024" ram="512" serial="0" console="" delay="0" icon="Router.png" config="0" left="108" top="26">
+        <interface id="0" name="e0/0" type="ethernet" network_id="11"/>
+        <interface id="16" name="e0/1" type="ethernet" network_id="19"/>
+      </node>
+      <node id="10" name="R10" type="iol" template="iol" image="L3-ADVENTERPRISEK9-M-15.5-2T.bin" ethernet="1" nvram="1024" ram="512" serial="0" console="" delay="0" icon="Router.png" config="0" left="108" top="136">
+        <interface id="0" name="e0/0" type="ethernet" network_id="12"/>
+        <interface id="16" name="e0/1" type="ethernet" network_id="19"/>
+      </node>
+      <node id="11" name="R11" type="iol" template="iol" image="L3-ADVENTERPRISEK9-M-15.5-2T.bin" ethernet="1" nvram="1024" ram="512" serial="0" console="" delay="0" icon="Router.png" config="0" left="118" top="306">
+        <interface id="0" name="e0/0" type="ethernet" network_id="13"/>
+        <interface id="16" name="e0/1" type="ethernet" network_id="20"/>
+      </node>
+      <node id="12" name="R12" type="iol" template="iol" image="L3-ADVENTERPRISEK9-M-15.5-2T.bin" ethernet="1" nvram="1024" ram="512" serial="0" console="" delay="0" icon="Router.png" config="0" left="148" top="466">
+        <interface id="0" name="e0/0" type="ethernet" network_id="14"/>
+        <interface id="16" name="e0/1" type="ethernet" network_id="20"/>
+      </node>
+      <node id="13" name="R13" type="iol" template="iol" image="L3-ADVENTERPRISEK9-M-15.5-2T.bin" ethernet="1" nvram="1024" ram="512" serial="0" console="" delay="0" icon="Router.png" config="0" left="808" top="16">
+        <interface id="0" name="e0/0" type="ethernet" network_id="17"/>
+        <interface id="16" name="e0/1" type="ethernet" network_id="22"/>
+      </node>
+      <node id="14" name="R14" type="iol" template="iol" image="L3-ADVENTERPRISEK9-M-15.5-2T.bin" ethernet="1" nvram="1024" ram="512" serial="0" console="" delay="0" icon="Router.png" config="0" left="928" top="86">
+        <interface id="0" name="e0/0" type="ethernet" network_id="18"/>
+        <interface id="16" name="e0/1" type="ethernet" network_id="22"/>
+      </node>
+      <node id="15" name="R15" type="iol" template="iol" image="L3-ADVENTERPRISEK9-M-15.5-2T.bin" ethernet="1" nvram="1024" ram="512" serial="0" console="" delay="0" icon="Router.png" config="0" left="748" top="476">
+        <interface id="0" name="e0/0" type="ethernet" network_id="15"/>
+        <interface id="16" name="e0/1" type="ethernet" network_id="21"/>
+      </node>
+      <node id="16" name="R16" type="iol" template="iol" image="L3-ADVENTERPRISEK9-M-15.5-2T.bin" ethernet="1" nvram="1024" ram="512" serial="0" console="" delay="0" icon="Router.png" config="0" left="908" top="366">
+        <interface id="0" name="e0/0" type="ethernet" network_id="16"/>
+        <interface id="16" name="e0/1" type="ethernet" network_id="21"/>
+      </node>
+    </nodes>
+    <networks>
+      <network id="1" type="bridge" name="Net-CSR5-Gi1" left="490" top="198" visibility="0"/>
+      <network id="2" type="bridge" name="Net-CSR6-Gi1" left="490" top="328" visibility="0"/>
+      <network id="3" type="bridge" name="Net-CSR5-Gi2" left="490" top="198" visibility="0"/>
+      <network id="4" type="bridge" name="Net-CSR7-Gi2" left="650" top="198" visibility="0"/>
+      <network id="5" type="bridge" name="Net-CSR6-Gi3" left="490" top="328" visibility="0"/>
+      <network id="6" type="bridge" name="Net-CSR8-Gi3" left="660" top="328" visibility="0"/>
+      <network id="7" type="bridge" name="Net-XR1-Gi0/0/0/0" left="320" top="132" visibility="0"/>
+      <network id="8" type="bridge" name="Net-XR2-Gi0/0/0/0" left="310" top="382" visibility="0"/>
+      <network id="9" type="bridge" name="Net-CSR7-Gi4" left="670" top="198" visibility="0"/>
+      <network id="10" type="bridge" name="Net-CSR8-Gi4" left="670" top="338" visibility="0"/>
+      <network id="11" type="bridge" name="Net-XR1-Gi0/0/0/1" left="320" top="132" visibility="0"/>
+      <network id="12" type="bridge" name="Net-XR1-Gi0/0/0/2" left="320" top="132" visibility="0"/>
+      <network id="13" type="bridge" name="Net-XR2-Gi0/0/0/1" left="310" top="382" visibility="0"/>
+      <network id="14" type="bridge" name="Net-XR2-Gi0/0/0/2" left="310" top="382" visibility="0"/>
+      <network id="15" type="bridge" name="Net-XR4-Gi0/0/0/1" left="792" top="374" visibility="0"/>
+      <network id="16" type="bridge" name="Net-XR4-Gi0/0/0/2" left="792" top="374" visibility="0"/>
+      <network id="17" type="bridge" name="Net-XR3-Gi0/0/0/1" left="802" top="144" visibility="0"/>
+      <network id="18" type="bridge" name="Net-XR3-Gi0/0/0/2" left="802" top="144" visibility="0"/>
+      <network id="19" type="bridge" name="Net-R9-e0/1" left="158" top="66" visibility="0"/>
+      <network id="20" type="bridge" name="Net-R11-e0/1" left="168" top="346" visibility="0"/>
+      <network id="21" type="bridge" name="Net-R16-e0/1" left="958" top="406" visibility="0"/>
+      <network id="22" type="bridge" name="Net-R13-e0/1" left="858" top="56" visibility="0"/>
+    </networks>
+  </topology>
+</lab>

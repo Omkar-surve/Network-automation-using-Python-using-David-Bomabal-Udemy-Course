@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<lab name="test" version="1" scripttimeout="300" lock="0" author="omkar">
+  <topology>
+    <nodes>
+      <node id="1" name="xrv1" type="qemu" template="xrv" image="xrv-k9-6.0.1" console="telnet" cpu="1" cpulimit="1" ram="3072" ethernet="4" uuid="ffe33411-176c-47a8-9c95-f102947ebc30" qemu_options="-machine type=pc,accel=kvm,usb=off -serial mon:stdio -nographic -no-user-config -nodefaults -rtc base=utc,driftfix=slew -global kvm-pit.lost_tick_policy=discard -no-hpet -realtime mlock=off -no-shutdown -boot order=c" qemu_version="2.4.0" qemu_arch="x86_64" qemu_nic="virtio-net-pci" delay="0" icon="XR.png" config="0" left="340" top="200">
+        <interface id="1" name="Gi0/0/0/0" type="ethernet" network_id="1"/>
+        <interface id="2" name="Gi0/0/0/1" type="ethernet" network_id="2"/>
+      </node>
+      <node id="2" name="xrv2" type="qemu" template="xrv" image="xrv-k9-6.0.1" console="telnet" cpu="1" cpulimit="1" ram="3072" ethernet="4" uuid="eafd0917-b088-4a0d-8c14-4b2759e813d2" qemu_options="-machine type=pc,accel=kvm,usb=off -serial mon:stdio -nographic -no-user-config -nodefaults -rtc base=utc,driftfix=slew -global kvm-pit.lost_tick_policy=discard -no-hpet -realtime mlock=off -no-shutdown -boot order=c" qemu_version="2.4.0" qemu_arch="x86_64" qemu_nic="virtio-net-pci" delay="0" icon="XR.png" config="0" left="730" top="200">
+        <interface id="1" name="Gi0/0/0/0" type="ethernet" network_id="1"/>
+        <interface id="2" name="Gi0/0/0/1" type="ethernet" network_id="2"/>
+      </node>
+    </nodes>
+    <networks>
+      <network id="1" type="bridge" name="Net-xrv1-Gi0/0/0/0" left="460" top="250" visibility="0"/>
+      <network id="2" type="bridge" name="Net-xrv1-Gi0/0/0/1" left="400" top="250" visibility="0"/>
+    </networks>
+  </topology>
+</lab>

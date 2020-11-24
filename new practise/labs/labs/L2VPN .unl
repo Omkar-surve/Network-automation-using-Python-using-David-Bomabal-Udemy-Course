@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<lab name="L2VPN " version="1" scripttimeout="300" lock="0" author="omkar">
+  <description>L2vpn connectivity betw CEs</description>
+  <topology>
+    <nodes>
+      <node id="1" name="xrv1" type="qemu" template="xrv" image="xrv-k9-6.1.2" console="telnet" cpu="1" cpulimit="1" ram="2048" ethernet="4" uuid="8c46a1f3-7ad4-4710-9d89-a5cd4b164aa7" qemu_options="-machine type=pc,accel=kvm,usb=off -serial mon:stdio -nographic -no-user-config -nodefaults -rtc base=utc,driftfix=slew -global kvm-pit.lost_tick_policy=discard -no-hpet -realtime mlock=off -no-shutdown -boot order=c" qemu_version="2.4.0" qemu_arch="x86_64" qemu_nic="virtio-net-pci" delay="0" icon="XR.png" config="0" left="270" top="244">
+        <interface id="1" name="Gi0/0/0/0" type="ethernet" network_id="1"/>
+        <interface id="2" name="Gi0/0/0/1" type="ethernet" network_id="3"/>
+      </node>
+      <node id="2" name="xrv2" type="qemu" template="xrv" image="xrv-k9-6.1.2" console="telnet" cpu="1" cpulimit="1" ram="2048" ethernet="4" uuid="b29326e7-f6fd-401a-aaf7-b903fa201007" qemu_options="-machine type=pc,accel=kvm,usb=off -serial mon:stdio -nographic -no-user-config -nodefaults -rtc base=utc,driftfix=slew -global kvm-pit.lost_tick_policy=discard -no-hpet -realtime mlock=off -no-shutdown -boot order=c" qemu_version="2.4.0" qemu_arch="x86_64" qemu_nic="virtio-net-pci" delay="0" icon="XR.png" config="0" left="670" top="244">
+        <interface id="1" name="Gi0/0/0/0" type="ethernet" network_id="2"/>
+        <interface id="3" name="Gi0/0/0/2" type="ethernet" network_id="4"/>
+      </node>
+      <node id="3" name="R3" type="iol" template="iol" image="L3-ADVENTERPRISEK9-M-15.5-2T.bin" ethernet="1" nvram="512" ram="512" serial="0" console="" delay="0" icon="Router.png" config="0" left="464" top="254">
+        <interface id="16" name="e0/1" type="ethernet" network_id="3"/>
+        <interface id="32" name="e0/2" type="ethernet" network_id="4"/>
+      </node>
+      <node id="4" name="R4" type="iol" template="iol" image="L3-ADVENTERPRISEK9-M-15.4-2T.bin" ethernet="1" nvram="512" ram="512" serial="0" console="" delay="0" icon="Router.png" config="0" left="94" top="134">
+        <interface id="0" name="e0/0" type="ethernet" network_id="1"/>
+      </node>
+      <node id="5" name="R5" type="iol" template="iol" image="L3-ADVENTERPRISEK9-M-15.5-2T.bin" ethernet="1" nvram="512" ram="512" serial="0" console="" delay="0" icon="Router.png" config="0" left="794" top="124">
+        <interface id="0" name="e0/0" type="ethernet" network_id="2"/>
+      </node>
+    </nodes>
+    <networks>
+      <network id="1" type="bridge" name="Net-R4-e0/0" left="144" top="174" visibility="0"/>
+      <network id="2" type="bridge" name="Net-xrv2-Gi0/0/0/0" left="720" top="284" visibility="0"/>
+      <network id="3" type="bridge" name="Net-xrv1-Gi0/0/0/1" left="320" top="284" visibility="0"/>
+      <network id="4" type="bridge" name="Net-R3-e0/2" left="514" top="294" visibility="0"/>
+    </networks>
+  </topology>
+</lab>
