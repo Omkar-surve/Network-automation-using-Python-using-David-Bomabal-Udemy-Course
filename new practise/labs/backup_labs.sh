@@ -1,8 +1,8 @@
 #!/bin/bash
 
-SRC_DIR="/opt/unetlab/labs"
+SRC_DIR="/opt/unetlab/labs/"
 
-DST_DIR="/root/git_doc/Network-automation-using-Python-using-David-Bomabal-Udem$"
+DST_DIR="/git_doc/Network-automation-using-Python-using-David-Bomabal-Udemy-Course/new practise/labs/"
 
 cp $SRC_DIR/ $DST_DIR
 
