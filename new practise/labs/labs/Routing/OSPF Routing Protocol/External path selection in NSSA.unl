@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<lab name="External path selection in NSSA" id="0ac1b430-c26a-4899-b2a1-d5b3d8aca28c" version="1" scripttimeout="300" lock="0">
+  <description>External path selection in NSSA</description>
+  <body>External path selection in NSSA</body>
+  <topology>
+    <nodes>
+      <node id="1" name="NXOS1" type="qemu" template="titanium" image="titanium-7" console="telnet" cpu="1" cpulimit="0" ram="4096" ethernet="4" uuid="3d2680f0-fcb8-4c81-9020-4ecc0ce56692" qemu_options="-machine type=pc,accel=kvm -serial mon:stdio -nographic -no-user-config -nodefaults -rtc base=utc" qemu_version="2.12.0" qemu_arch="x86_64" delay="0" icon="Nexus7K.png" config="0" left="309" top="282">
+        <interface id="0" name="Mgmt0" type="ethernet" network_id="2"/>
+        <interface id="1" name="E2/1" type="ethernet" network_id="5"/>
+      </node>
+      <node id="2" name="NXOS2" type="qemu" template="titanium" image="titanium-7" console="telnet" cpu="1" cpulimit="0" ram="4096" ethernet="4" uuid="ed0d01e9-45f7-4e7a-9ba3-db41f1e2c06a" qemu_options="-machine type=pc,accel=kvm -serial mon:stdio -nographic -no-user-config -nodefaults -rtc base=utc" qemu_version="2.12.0" qemu_arch="x86_64" delay="0" icon="Nexus7K.png" config="0" left="513" top="282">
+        <interface id="0" name="Mgmt0" type="ethernet" network_id="2"/>
+        <interface id="1" name="E2/1" type="ethernet" network_id="5"/>
+        <interface id="2" name="E2/2" type="ethernet" network_id="6"/>
+      </node>
+      <node id="3" name="NXOS3" type="qemu" template="titanium" image="titanium-7" console="telnet" cpu="1" cpulimit="0" ram="4096" ethernet="4" uuid="7e62c008-9dc7-4908-8014-6327407fdd6f" qemu_options="-machine type=pc,accel=kvm -serial mon:stdio -nographic -no-user-config -nodefaults -rtc base=utc" qemu_version="2.12.0" qemu_arch="x86_64" delay="0" icon="Nexus7K.png" config="0" left="816" top="414">
+        <interface id="0" name="Mgmt0" type="ethernet" network_id="1"/>
+        <interface id="1" name="E2/1" type="ethernet" network_id="8"/>
+        <interface id="2" name="E2/2" type="ethernet" network_id="9"/>
+      </node>
+      <node id="4" name="NXOS4" type="qemu" template="titanium" image="titanium-7" console="telnet" cpu="1" cpulimit="0" ram="4096" ethernet="4" uuid="5c5acfb3-1897-4c4f-a018-f3fad17089be" qemu_options="-machine type=pc,accel=kvm -serial mon:stdio -nographic -no-user-config -nodefaults -rtc base=utc" qemu_version="2.12.0" qemu_arch="x86_64" delay="0" icon="Nexus7K.png" config="0" left="816" top="159">
+        <interface id="0" name="Mgmt0" type="ethernet" network_id="1"/>
+        <interface id="1" name="E2/1" type="ethernet" network_id="7"/>
+        <interface id="2" name="E2/2" type="ethernet" network_id="11"/>
+      </node>
+      <node id="5" name="R5" type="iol" template="iol" image="i86bi_linux_l2-ipbasek9-ms.high_iron_aug9_2017b.bin" ethernet="1" nvram="1024" ram="512" serial="0" console="" delay="0" icon="Switch.png" config="0" left="654" top="294">
+        <interface id="0" name="e0/0" type="ethernet" network_id="6"/>
+        <interface id="16" name="e0/1" type="ethernet" network_id="7"/>
+        <interface id="32" name="e0/2" type="ethernet" network_id="8"/>
+      </node>
+      <node id="6" name="R6" type="iol" template="iol" image="i86bi_linux_l2-ipbasek9-ms.high_iron_aug9_2017b.bin" ethernet="1" nvram="1024" ram="512" serial="0" console="" delay="0" icon="Switch.png" config="0" left="912" top="177">
+        <interface id="0" name="e0/0" type="ethernet" network_id="11"/>
+        <interface id="16" name="e0/1" type="ethernet" network_id="12"/>
+      </node>
+      <node id="7" name="R7" type="iol" template="iol" image="i86bi_linux_l2-ipbasek9-ms.high_iron_aug9_2017b.bin" ethernet="1" nvram="1024" ram="512" serial="0" console="" delay="0" icon="Switch.png" config="0" left="939" top="429">
+        <interface id="0" name="e0/0" type="ethernet" network_id="9"/>
+        <interface id="16" name="e0/1" type="ethernet" network_id="10"/>
+      </node>
+      <node id="8" name="R8" type="iol" template="iol" image="i86bi_linux_l2-ipbasek9-ms.high_iron_aug9_2017b.bin" ethernet="1" nvram="1024" ram="512" serial="0" console="" delay="0" icon="Switch.png" config="0" left="174" top="309"/>
+      <node id="9" name="VPC9" type="vpcs" template="vpcs" image="" ethernet="1" delay="0" icon="Desktop.png" config="0" left="75" top="291"/>
+      <node id="10" name="VPC10" type="vpcs" template="vpcs" image="" ethernet="1" delay="0" icon="Desktop.png" config="0" left="1023" top="171">
+        <interface id="0" name="eth0" type="ethernet" network_id="12"/>
+      </node>
+      <node id="11" name="VPC11" type="vpcs" template="vpcs" image="" ethernet="1" delay="0" icon="Desktop.png" config="0" left="1062" top="417">
+        <interface id="0" name="eth0" type="ethernet" network_id="10"/>
+      </node>
+    </nodes>
+    <networks>
+      <network id="1" type="pnet0" name="Net1" left="951" top="291" visibility="1"/>
+      <network id="2" type="pnet0" name="Net2" left="408" top="144" visibility="1"/>
+      <network id="3" type="pnet0" name="Net3" left="210" top="24" visibility="1"/>
+      <network id="4" type="pnet0" name="Net4" left="135" top="30" visibility="1"/>
+      <network id="5" type="bridge" name="Net-NXOS1iface_1" left="405" top="322" visibility="0"/>
+      <network id="6" type="bridge" name="Net-NXOS2iface_2" left="612" top="319" visibility="0"/>
+      <network id="7" type="bridge" name="Net-R5iface_16" left="753" top="331" visibility="0"/>
+      <network id="8" type="bridge" name="Net-R5iface_32" left="753" top="331" visibility="0"/>
+      <network id="9" type="bridge" name="Net-NXOS3iface_2" left="915" top="451" visibility="0"/>
+      <network id="10" type="bridge" name="Net-R7iface_16" left="1038" top="466" visibility="0"/>
+      <network id="11" type="bridge" name="Net-NXOS4iface_2" left="915" top="196" visibility="0"/>
+      <network id="12" type="bridge" name="Net-R6iface_16" left="1011" top="214" visibility="0"/>
+    </networks>
+  </topology>
+</lab>
