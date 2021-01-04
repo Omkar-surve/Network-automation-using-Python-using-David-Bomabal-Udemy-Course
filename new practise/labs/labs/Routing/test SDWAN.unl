@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<lab name="test SDWAN" id="97f245b9-515c-44ab-b042-94ad62c48fb4" version="1" scripttimeout="300" lock="0">
+  <description>test SDWAN</description>
+  <body>test SDWAN</body>
+  <topology>
+    <nodes>
+      <node id="1" name="vBond" type="qemu" template="vtbond" image="vtbond-19.2.3" console="telnet" cpu="1" cpulimit="0" ram="1024" ethernet="2" uuid="9f859df3-e41d-4565-8730-c91496c3c9b6" qemu_options="-machine type=pc,accel=kvm -cpu host -vga std -usbdevice tablet -boot order=dc -cpu host" qemu_version="2.12.0" qemu_arch="x86_64" qemu_nic="virtio-net-pci" delay="0" icon="vBond.png" config="0" left="261" top="30"/>
+      <node id="2" name="vEdge" type="qemu" template="vtedge" image="vtedge-19.2.3" console="telnet" cpu="1" cpulimit="0" ram="1024" ethernet="5" uuid="dd1b5733-f13e-46ec-b02d-82d313d8f6a1" qemu_options="-machine type=pc,accel=kvm -cpu host -vga std -usbdevice tablet -boot order=dc -cpu host" qemu_version="2.12.0" qemu_arch="x86_64" qemu_nic="e1000" delay="0" icon="vEdge.png" config="0" left="162" top="30"/>
+      <node id="3" name="vSmart" type="qemu" template="vtsmart" image="vtsmart-19.2.3" console="telnet" cpu="2" cpulimit="0" ram="2048" ethernet="2" uuid="0a6df63e-73e5-440d-a96b-c4b56b1bacf0" qemu_options="-machine type=pc,accel=kvm -cpu host -vga std -usbdevice tablet -boot order=dc -cpu host" qemu_version="2.12.0" qemu_arch="x86_64" qemu_nic="virtio-net-pci" delay="0" icon="vSmart.png" config="0" left="357" top="27"/>
+      <node id="4" name="vManager" type="qemu" template="vtmgmt" image="vtmgmt-19.2.3" console="telnet" cpu="4" cpulimit="0" ram="16384" ethernet="2" uuid="44511ae9-1796-411f-b52a-316c72a26a0b" qemu_options="-machine type=pc,accel=kvm -cpu host -vga std -usbdevice tablet -boot order=dc -cpu host" qemu_version="2.12.0" qemu_arch="x86_64" qemu_nic="virtio-net-pci" delay="0" icon="vManage.png" config="0" left="462" top="30"/>
+    </nodes>
+  </topology>
+</lab>
